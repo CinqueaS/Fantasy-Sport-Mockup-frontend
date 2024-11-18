@@ -1,0 +1,287 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* White text for contrast */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column; /* Flex layout for vertical stacking */
+  }
+  
+  h1, h2, h3 {
+    color: #fff;
+  }
+  
+  /* Left Sidebar */
+  #side-nav {
+    width: 250px;
+    background-color: #333;
+    color: #ddd;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-top: 20px;
+    text-align: center;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  #side-nav header {
+    margin-bottom: 30px;
+  }
+  
+  #side-nav header img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  #side-nav h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  
+  #side-nav nav ul {
+    list-style: none;
+    margin-top: 40px;
+  }
+  
+  #side-nav nav ul li {
+    margin-bottom: 15px;
+  }
+  
+  #side-nav nav ul li a {
+    display: block;
+    color: #bbb;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  #side-nav nav ul li a:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  #side-nav footer ul {
+    list-style: none;
+    margin-top: 40px;
+  }
+  
+  /* Social Media Buttons */
+  #side-nav footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  #side-nav footer ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  #side-nav footer ul li a:hover {
+    background-color: #444;
+  }
+  
+  /* Facebook Icon */
+  .social-btn.facebook {
+    background-color: #3b5998; /* Facebook blue */
+  }
+  
+  .social-btn.facebook:hover {
+    background-color: #2d4373;
+  }
+  
+  /* Twitter Icon */
+  .social-btn.twitter {
+    background-color: #00acee; /* Twitter blue */
+  }
+  
+  .social-btn.twitter:hover {
+    background-color: #0081b2;
+  }
+  
+  /* Instagram Icon */
+  .social-btn.instagram {
+    background-color: #e4405f; /* Instagram pink */
+  }
+  
+  .social-btn.instagram:hover {
+    background-color: #c13584;
+  }
+  
+  /* LinkedIn Icon */
+  .social-btn.linkedin {
+    background-color: #0077b5; /* LinkedIn blue */
+  }
+  
+  .social-btn.linkedin:hover {
+    background-color: #004c85;
+  }
+  
+  /* Top Navbar */
+  #top-nav {
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #top-nav button {
+    background-color: #444;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  #top-nav button:hover {
+    background-color: #666;
+  }
+  
+  /* Main Content */
+  #main-content {
+    margin-left: 250px;
+    padding-top: 60px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    flex-grow: 1; /* Allow content to grow and take up remaining space */
+    padding: 20px;
+  }
+  
+  .content-body {
+    display: flex; /* Change to flexbox */
+    justify-content: space-between; /* Space between the two sections */
+    gap: 30px; /* Add some space between the two sections */
+  }
+  
+  #team-list, #player-list {
+    width: 48%; /* Make both sections take 48% of the container width */
+    background-color: #333; /* Darker background for sections */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
+  }
+  
+  #team-list h3, #player-list h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ccc; /* Slightly lighter text for headings */
+  }
+  
+  ul li {
+    background-color: #444; /* Darker list items */
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  ul li:hover {
+    background-color: #555; /* Slightly lighter on hover */
+  }
+  
+  ul li:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Fantasy Links at the Bottom */
+  .fantasy-links {
+    margin-top: auto; /* Push this section to the bottom */
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .fantasy-links h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+  }
+  
+  .fantasy-links ul {
+    list-style: none;
+  }
+  
+  .fantasy-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .fantasy-links ul li a {
+    color: #bbb;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .fantasy-links ul li a:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #222;
+    color: #bbb;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+  }
+  
+  footer a {
+    color: #bbb;
+    text-decoration: none;
+    padding: 0 10px;
+  }
+  
+  footer a:hover {
+    color: #fff;
+  }
