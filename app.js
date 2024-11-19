@@ -1,8 +1,8 @@
 const teams = [
-    { name: "AC", players: ["Player 1", "Player 2", "Player 3"] },
-    { name: "Cinquea", players: ["Player 1", "Player 2", "Player 3"] },
-    { name: "Chris", players: ["Player 1", "Player 2", "Player 3"] },
-    { name: "Jordan", players: ["Player 1", "Player 2", "Player 3"] } // New Team Added
+    { name: "AC", players: ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"] },
+    { name: "Cinquea", players: ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"] },
+    { name: "Chris", players: ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"] },
+    { name: "Jordan", players: ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"] } // New Team Added
   ];
   
   const players = [
