@@ -1,16 +1,34 @@
-
-import React, { useState } from "react"
-import "./index.css"
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./index.css";
+import Login from "./components/login";
+import Signup from "./components/signup"
+import AboutUs from "./components/aboutUs";
 
 function App() {
   return (
-    <div className="app">
-      <SideNav />
+    <Router>
+      <div className="app">
+        <SideNav />
+        <Routes>
+          <Route path="/" element={<MainLayout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/about-Us" element={<AboutUs />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function MainLayout() {
+  return (
+    <>
       <TopNav />
       <Breadcrumbs />
       <MainContent />
-    </div>
-  )
+    </>
+  );
 }
 
 function SideNav() {
@@ -23,10 +41,10 @@ function SideNav() {
       </header>
       <nav>
         <ul>
-          <li><a href="#">Fantasy Football</a></li>
-          <li><a href="#">Teams</a></li>
-          <li><a href="#">Players</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><Link to="/">Fantasy Football</Link></li>
+          <li><Link to="#">Teams</Link></li>
+          <li><Link to="#">Players</Link></li>
+          <li><Link to="/about-Us" >About Us</Link></li>
         </ul>
       </nav>
       <footer>
@@ -38,7 +56,7 @@ function SideNav() {
         </ul>
       </footer>
     </div>
-  )
+  );
 }
 
 function TopNav() {
@@ -46,10 +64,14 @@ function TopNav() {
     <header id="top-nav">
       <button onClick={() => window.location.href = "https://www.apple.com/app-store/"}>App Store</button>
       <button onClick={() => window.location.href = "https://play.google.com/store"}>Google Play</button>
-      <button onClick={() => window.location.href = "login.html"}>Login</button>
-      <button onClick={() => window.location.href = "signup.html"}>Sign Up</button>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
+      <Link to="/signup">
+        <button>Sign Up</button>
+      </Link>
     </header>
-  )
+  );
 }
 
 function Breadcrumbs() {
@@ -57,7 +79,7 @@ function Breadcrumbs() {
     <div id="breadcrumbs">
       <a href="#">Home</a> &gt; <a href="#">Teams</a> &gt; <span>Team Details</span>
     </div>
-  )
+  );
 }
 
 function MainContent() {
@@ -80,22 +102,22 @@ function MainContent() {
       <FantasyLinks />
       <ComparisonSection />
     </div>
-  )
+  );
 }
 
 function Controls() {
-  const [teamName, setTeamName] = useState("")
-  const [playerSearch, setPlayerSearch] = useState("")
-  const [positionFilter, setPositionFilter] = useState("all")
+  const [teamName, setTeamName] = useState("");
+  const [playerSearch, setPlayerSearch] = useState("");
+  const [positionFilter, setPositionFilter] = useState("all");
 
   const handleSaveTeamName = () => {
-    console.log("Saved Team Name:", teamName)
-    setTeamName("")
-  }
+    console.log("Saved Team Name:", teamName);
+    setTeamName("");
+  };
 
   const handleSearchPlayers = () => {
-    console.log("Search Players:", playerSearch, "Filter:", positionFilter)
-  }
+    console.log("Search Players:", playerSearch, "Filter:", positionFilter);
+  };
 
   return (
     <div className="controls-container">
@@ -127,7 +149,7 @@ function Controls() {
         <button onClick={handleSearchPlayers}>Search</button>
       </div>
     </div>
-  )
+  );
 }
 
 function FantasyLinks() {
@@ -141,7 +163,7 @@ function FantasyLinks() {
         <a href="https://hockey.fantasy.com" className="fantasy-btn hockey"></a>
       </div>
     </div>
-  )
+  );
 }
 
 function ComparisonSection() {
@@ -152,7 +174,8 @@ function ComparisonSection() {
       <button onClick={() => console.log("Compare Players")}>Compare</button>
       <div id="comparison-results"></div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+
