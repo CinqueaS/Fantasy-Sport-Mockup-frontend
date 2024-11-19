@@ -14,10 +14,12 @@
 <body>
   <!-- Left Side Navigation Bar -->
   <div id="side-nav">
-    <header>
-      <img src="logo.png" alt="Logo" id="logo">
-      <h1>Fantasy Football</h1>
-    </header>
+    <header id="top-nav">
+  <div class="logo-container">
+    <img src="logo.png" alt="Fantasy Football Logo" id="logo">
+  </div>
+  <!-- Other buttons like App Store, Login, etc. -->
+</header>
     <nav>
       <ul>
         <li><a href="#">Fantasy Football</a></li>
@@ -38,13 +40,16 @@
 
   <!-- Top Navigation Bar -->
   <header id="top-nav">
-    <button>App Store</button>
-    <button>Google Play</button>
-    <button id="login-btn">Login</button>
-    <button id="signup-btn">Sign Up</button>
+    <button onclick="window.location.href='https://www.apple.com/app-store/'">App Store</button>
+<button onclick="window.location.href='https://play.google.com/store'">Google Play</button>
+<button onclick="window.location.href='login.html'">Login</button>
+<button onclick="window.location.href='signup.html'">Sign Up</button>
   </header>
 
   <!-- Main Content Section -->
+  <div id="breadcrumbs">
+    <a href="#">Home</a> > <a href="#">Teams</a> > <span>Team Details</span>
+  </div>
   <div id="main-content">
     <div class="content-header">
       <h2>Your Teams</h2>
@@ -62,16 +67,54 @@
       </div>
     </div>
 
+    <div class="controls-container">
+      <!-- Change Team Name Section -->
+      <div class="team-name-section">
+          <input type="text" id="team-name" placeholder="Enter your team name">
+          <button onclick="saveProfile()">Save Team Name</button>
+      </div>
+  
+      <!-- Player Search Section -->
+      <div class="player-search-section">
+          <input type="text" id="player-search" placeholder="Search Players">
+          <select id="position-filter">
+              <option value="all">All Positions</option>
+              <option value="QB">Quarterback</option>
+              <option value="RB">Running Back</option>
+              <option value="WR">Wide Receiver</option>
+              <!-- Add other positions -->
+          </select>
+          <button onclick="filterPlayers()">Search</button>
+      </div>
+  </div>
+  
+  <!-- This section will display filtered players -->
+  <ul id="filtered-players-list"></ul>
     <!-- Move the Fantasy League links to the bottom -->
     <div class="fantasy-links">
       <h3>Other Fantasy Leagues</h3>
-      <ul>
-        <li><a href="https://basketball.fantasy.com" target="_blank">Basketball Fantasy</a></li>
-        <li><a href="https://baseball.fantasy.com" target="_blank">Baseball Fantasy</a></li>
-        <li><a href="https://hockey.fantasy.com" target="_blank">Hockey Fantasy</a></li>
-        <li><a href="https://soccer.fantasy.com" target="_blank">Soccer Fantasy</a></li>
-      </ul>
+      <div class="fantasy-league-buttons">
+        <a href="https://basketball.fantasy.com" class="fantasy-btn basketball"></a>
+        <a href="https://baseball.fantasy.com" class="fantasy-btn baseball"></a>
+        <a href="https://soccer.fantasy.com" class="fantasy-btn soccer"></a>
+        <a href="https://hockey.fantasy.com" class="fantasy-btn hockey"></a>
+      </div>
     </div>
-  </div>
+
+    <select id="player-compare-1">
+      <!-- Populate with player names dynamically -->
+    </select>
+    
+    <select id="player-compare-2">
+      <!-- Populate with player names dynamically -->
+    </select>
+    
+    <button onclick="comparePlayers()">Compare</button>
+    
+    <div id="comparison-results"></div>
 </body>
+
+<textarea id="chat-input"></textarea>
+<button onclick="sendChatMessage()">Send</button>
+<div id="chat-box"></div>
 </html>
