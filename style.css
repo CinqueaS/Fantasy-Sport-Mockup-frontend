@@ -1,4 +1,3 @@
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,24 +5,24 @@
 }
 
 body {
-  background-color: #f0f0f0; /* Lighter background */
-  color: #333; /* Dark text for contrast */
+  background-color: #f0f0f0; 
+  color: #333; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   min-height: 100vh;
-  flex-direction: column; /* Flex layout for vertical stacking */
+  flex-direction: column; 
 }
 
 /* Main Header */
 h1, h2, h3 {
   color: #333;
-  text-align: center; /* Center align headers */
+  text-align: center; 
 }
 
-/* Left Sidebar */
+
 #side-nav {
   width: 250px;
-  background-color: #ff5733; /* Bright red background for the sidebar */
+  background-color: #ff5733; 
   color: #fff;
   position: fixed;
   top: 0;
@@ -44,12 +43,12 @@ h1, h2, h3 {
 }
 
 #side-nav h1 {
-  font-size: 26px; /* Larger font for the main title */
+  font-size: 26px; 
   font-weight: bold;
   color: #fff;
   margin-top: 20px;
-  text-transform: uppercase; /* Make it bold and standout */
-  letter-spacing: 1px; /* Increase letter spacing for a more dramatic effect */
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
 }
 
 #side-nav nav ul {
@@ -63,39 +62,38 @@ h1, h2, h3 {
 
 #side-nav nav ul li a {
   display: block;
-  color: #fff; /* White text for contrast */
-  font-size: 20px; /* Increase font size for visibility */
+  color: #fff; 
+  font-size: 20px; 
   padding: 14px 20px;
   text-decoration: none;
   transition: all 0.3s ease;
   border-radius: 5px;
-  font-weight: bold; /* Make navigation links bold */
+  font-weight: bold; 
 }
 
 #side-nav nav ul li a:hover {
-  background-color: #ff5733; /* Bright red background on hover */
-  color: #fff; /* Ensure text remains white on hover */
-}
+  background-color: #ff5733; 
+  color: #fff; 
 
 #side-nav footer {
   margin-top: 40px;
   display: flex;
-  flex-direction: column; /* Arrange icons vertically */
-  align-items: center; /* Center-align the icons */
-  gap: 15px; /* Add space between icons */
+  flex-direction: column; 
+  align-items: center; 
+  gap: 15px; 
 }
 
 #side-nav footer ul {
   list-style: none;
-  padding: 0; /* Remove default padding */
+  padding: 0; 
   display: flex;
-  flex-direction: column; /* Arrange items vertically */
+  flex-direction: column; 
   justify-content: center;
-  gap: 10px; /* Space between icons */
+  gap: 10px; 
 }
 
 #side-nav footer ul li {
-  margin-bottom: 0; /* Remove extra margin at the bottom */
+  margin-bottom: 0; 
 }
 
 #side-nav footer ul li a {
@@ -109,33 +107,30 @@ h1, h2, h3 {
   color: white;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  background-color: #444; /* Default dark background for the icons */
+  background-color: #444; 
 }
 
 #side-nav footer ul li a:hover {
-  background-color: #555; /* Slightly lighter background on hover */
+  background-color: #555; 
 }
 
-/* Adjust individual icon background colors */
 .social-btn.facebook {
-  background-color: #3b5998; /* Facebook blue */
+  background-color: #3b5998; 
 }
 
 .social-btn.twitter {
-  background-color: #00acee; /* Twitter blue */
+  background-color: #00acee; 
 }
 
 .social-btn.instagram {
-  background-color: #e4405f; /* Instagram pink */
-}
+  background-color: #e4405f; 
 
 .social-btn.linkedin {
-  background-color: #0077b5; /* LinkedIn blue */
+  background-color: #0077b5; 
 }
 
 #side-nav footer ul li a:hover {
-  background-color: #777; /* Lighter color on hover */
-}
+  background-color: #777; 
 
 /* Top Navbar */
 #top-nav {
@@ -154,7 +149,7 @@ h1, h2, h3 {
 }
 
 #top-nav button {
-  background-color: #ff5733; /* Use a bright red background for buttons */
+  background-color: #ff5733; 
   border: none;
   padding: 12px 20px;
   color: white;
@@ -162,11 +157,11 @@ h1, h2, h3 {
   font-size: 16px;
   border-radius: 5px;
   transition: all 0.3s ease;
-  font-weight: bold; /* Make buttons stand out */
+  font-weight: bold; 
 }
 
 #top-nav button:hover {
-  background-color: #ff6f47; /* Slightly lighter red for hover */
+  background-color: #ff6f47; 
 }
 
 /* Main Content */
@@ -178,10 +173,9 @@ h1, h2, h3 {
   flex-direction: column;
   flex-grow: 1;
   padding: 20px;
-  background: linear-gradient(135deg, #007bff 0%, #ff5733 100%); /* Gradient from blue to red */
-  color: white; /* Ensure text is readable against the colorful background */
+  background: linear-gradient(135deg, #007bff 0%, #ff5733 100%); 
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .content-body {
@@ -191,7 +185,7 @@ h1, h2, h3 {
 }
 
 #team-list, #player-list {
-  width: 48%; /* Keep sections side by side */
+  width: 48%; 
   background-color: #fff;
   background: linear-gradient(145deg, #ff4b5c, #ff7a77); /* Consistent vibrant gradient background */
   padding: 20px;
@@ -202,20 +196,18 @@ h1, h2, h3 {
   margin-top: 20px;
   margin-bottom: 30px;
   transition: all 0.3s ease;
-  overflow-y: auto; /* Ensure content scrolls if too many items */
-}
+  overflow-y: auto; 
 
 #team-list h3, #player-list h3 {
-  font-size: 24px; /* Larger text size for better visibility */
-  margin-bottom: 20px; /* More space between heading and content */
-  color: #fff; /* White text for headings */
-  font-weight: bold; /* Make headings bold to stand out */
-}
+  font-size: 24px; 
+  margin-bottom: 20px; 
+  color: #fff; 
+  font-weight: bold; 
 
-/* Make list items stand out */
+
 ul li {
-  background-color: #fff; /* White background for list items */
-  color: #333; /* Dark text for contrast */
+  background-color: #fff; 
+  color: #333; 
   padding: 12px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -236,19 +228,19 @@ ul li:last-child {
 .fantasy-links {
   background: linear-gradient(145deg, #00c6ff, #0072ff); /* Gradient from blue to lighter blue */
   background-color: #fff;
-  border: 1px solid #ddd; /* Light border */
+  border: 1px solid #ddd; 
   padding: 20px;
   border-radius: 10px;
   color: #fff;
-  margin-top: 30px; /* Add space above */
+  margin-top: 30px; 
   margin-bottom: 30px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .fantasy-links h3 {
-  font-size: 24px; /* Larger heading size */
+  font-size: 24px; 
   margin-bottom: 15px;
-  color: #fff; /* White text for headings */
+  color: #fff; 
   font-weight: bold;
 }
 
@@ -268,26 +260,25 @@ ul li:last-child {
   padding: 10px 20px;
   transition: all 0.3s ease;
   border-radius: 5px;
-  font-weight: bold; /* Make links bold */
+  font-weight: bold; 
 }
 
 .fantasy-links ul li a:hover {
-  background-color: #ff5733; /* Bright red on hover for contrast */
-  color: #fff; /* Keep white text on hover */
-}
+  background-color: #ff5733; 
+  color: #fff; 
 
 /* Adjust spacing for better layout in content */
 .content-body {
-  display: flex; /* Change to flexbox */
-  justify-content: space-between; /* Space between the two sections */
-  gap: 20px; /* Add some space between the two sections */
+  display: flex; 
+  justify-content: space-between; 
+  gap: 20px; 
 }
 
 .content-header h2 {
-  font-size: 28px; /* Larger font for the "Your Teams" title */
-  color: #007bff; /* Bright blue color for the header */
-  font-weight: bold; /* Make it bold */
-  margin-bottom: 20px; /* More space for a better visual hierarchy */
+  font-size: 28px; 
+  color: #007bff; 
+  font-weight: bold; 
+  margin-bottom: 20px; 
 }
 
 
@@ -463,11 +454,11 @@ p a:hover {
 .team-name-section, .player-search-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;  /* Adds space between input fields and buttons */
-  width: 45%;  /* Make each section take up approximately half the available width */
+  gap: 10px;  
+  width: 45%;  
 }
 
-/* Add spacing and styling to inputs and buttons */
+
 input, select, button {
   padding: 10px;
   font-size: 16px;
@@ -485,7 +476,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Optionally, add margin between the two sections */
+
 .player-search-section {
   margin-left: 20px;
 }
