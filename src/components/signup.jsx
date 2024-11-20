@@ -1,14 +1,14 @@
 import React from 'react'
-import '../app.css' 
+import '../app.css'
 
 const Signup = (props) => {
   const handleSignup = () => {
-  
     alert('Signup successful')
   }
 
   return (
     <div className="auth-container">
+      <a href="/" className="home-link">Home</a>
       <div className="auth-box">
         <h2>Sign Up</h2>
         <form>
@@ -31,3 +31,4 @@ const Signup = (props) => {
 }
 
 export default Signup
+

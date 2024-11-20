@@ -1,0 +1,460 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0; /* Lighter background */
+  color: #333; /* Dark text for contrast */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; /* Flex layout for vertical stacking */
+}
+
+/* Main Header */
+h1, h2, h3 {
+  color: #333;
+  text-align: center; /* Center align headers */
+}
+
+/* Left Sidebar */
+#side-nav {
+  width: 250px;
+  background-color: #ff5733; /* Bright red background for the sidebar */
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-top: 20px;
+  text-align: center;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#side-nav header {
+  margin-bottom: 30px;
+}
+
+#side-nav header img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#side-nav h1 {
+  font-size: 26px; /* Larger font for the main title */
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+  text-transform: uppercase; /* Make it bold and standout */
+  letter-spacing: 1px; /* Increase letter spacing for a more dramatic effect */
+}
+
+#side-nav nav ul {
+  list-style: none;
+  margin-top: 40px;
+}
+
+#side-nav nav ul li {
+  margin-bottom: 15px;
+}
+
+#side-nav nav ul li a {
+  display: block;
+  color: #fff; /* White text for contrast */
+  font-size: 20px; /* Increase font size for visibility */
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold; /* Make navigation links bold */
+}
+
+#side-nav nav ul li a:hover {
+  background-color: #ff5733; /* Bright red background on hover */
+  color: #fff; /* Ensure text remains white on hover */
+}
+
+#side-nav footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; /* Arrange icons vertically */
+  align-items: center; /* Center-align the icons */
+  gap: 15px; /* Add space between icons */
+}
+
+#side-nav footer ul {
+  list-style: none;
+  padding: 0; /* Remove default padding */
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center;
+  gap: 10px; /* Space between icons */
+}
+
+#side-nav footer ul li {
+  margin-bottom: 0; /* Remove extra margin at the bottom */
+}
+
+#side-nav footer ul li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  background-color: #444; /* Default dark background for the icons */
+}
+
+#side-nav footer ul li a:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+
+/* Adjust individual icon background colors */
+.social-btn.facebook {
+  background-color: #3b5998; /* Facebook blue */
+}
+
+.social-btn.twitter {
+  background-color: #00acee; /* Twitter blue */
+}
+
+.social-btn.instagram {
+  background-color: #e4405f; /* Instagram pink */
+}
+
+.social-btn.linkedin {
+  background-color: #0077b5; /* LinkedIn blue */
+}
+
+#side-nav footer ul li a:hover {
+  background-color: #777; /* Lighter color on hover */
+}
+
+/* Top Navbar */
+#top-nav {
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#top-nav button {
+  background-color: #ff5733; /* Use a bright red background for buttons */
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: bold; /* Make buttons stand out */
+}
+
+#top-nav button:hover {
+  background-color: #ff6f47; /* Slightly lighter red for hover */
+}
+
+/* Main Content */
+#main-content {
+  margin-left: 250px;
+  padding-top: 60px;
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff 0%, #ff5733 100%); /* Gradient from blue to red */
+  color: white; /* Ensure text is readable against the colorful background */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.content-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+#team-list, #player-list {
+  width: 48%; /* Keep sections side by side */
+  background-color: #fff;
+  background: linear-gradient(145deg, #ff4b5c, #ff7a77); /* Consistent vibrant gradient background */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  overflow-y: auto; /* Ensure content scrolls if too many items */
+}
+
+#team-list h3, #player-list h3 {
+  font-size: 24px; /* Larger text size for better visibility */
+  margin-bottom: 20px; /* More space between heading and content */
+  color: #fff; /* White text for headings */
+  font-weight: bold; /* Make headings bold to stand out */
+}
+
+/* Make list items stand out */
+ul li {
+  background-color: #fff; /* White background for list items */
+  color: #333; /* Dark text for contrast */
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+  background-color: #ddd;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Fantasy Links at the Bottom */
+.fantasy-links {
+  background: linear-gradient(145deg, #00c6ff, #0072ff); /* Gradient from blue to lighter blue */
+  background-color: #fff;
+  border: 1px solid #ddd; /* Light border */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 30px; /* Add space above */
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.fantasy-links h3 {
+  font-size: 24px; /* Larger heading size */
+  margin-bottom: 15px;
+  color: #fff; /* White text for headings */
+  font-weight: bold;
+}
+
+.fantasy-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fantasy-links ul li {
+  margin-bottom: 10px;
+}
+
+.fantasy-links ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold; /* Make links bold */
+}
+
+.fantasy-links ul li a:hover {
+  background-color: #ff5733; /* Bright red on hover for contrast */
+  color: #fff; /* Keep white text on hover */
+}
+
+/* Adjust spacing for better layout in content */
+.content-body {
+  display: flex; /* Change to flexbox */
+  justify-content: space-between; /* Space between the two sections */
+  gap: 20px; /* Add some space between the two sections */
+}
+
+.content-header h2 {
+  font-size: 28px; /* Larger font for the "Your Teams" title */
+  color: #007bff; /* Bright blue color for the header */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 20px; /* More space for a better visual hierarchy */
+}
+
+
+#breadcrumbs {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#breadcrumbs a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Highlight Active Sidebar Item */
+#side-nav nav ul li.active a {
+  background-color: #007bff;
+  color: white;
+}
+
+fantasy-league-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.fantasy-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.fantasy-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Background images for each sport */
+.fantasy-btn.basketball {
+  background-image: url('Basketball.png');
+}
+
+.fantasy-btn.baseball {
+  background-image: url('baseball-icon.png');
+}
+
+.fantasy-btn.soccer {
+  background-image: url('Soccer.png');
+}
+
+.fantasy-btn.hockey {
+  background-image: url('hockey-icon.png');
+}
+
+ 
+@media (max-width: 768px) {
+  #side-nav {
+    width: 200px;
+  }
+
+  #main-content {
+    margin-left: 200px;
+  }
+
+  .content-body {
+    flex-direction: column;
+  }
+}
+
+#side-nav nav ul li:first-child a {
+  background: linear-gradient(135deg, #ff7f50, #ff6347); /* Gradients for a warm, dynamic background */
+  padding: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#side-nav nav ul li:first-child a:hover {
+  background: linear-gradient(135deg, #ff6347, #ff4500); /* Lighter gradient on hover */
+}
+
+#players-list li {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+}
+
+#players-list li:hover {
+  background-color: #ddd;
+}
+
+.login-container, .signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2, .signup-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5733;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #ff6f47;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./app.css";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import AboutUs from "./components/AboutUs";
+import React, { useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom"
+import "./index.css"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import AboutUs from "./components/AboutUs"
 
 function App() {
   return (
@@ -18,20 +18,15 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
-}
-
-function MainLayout() {
-  return (
-    <>
-      <TopNav />
-      <Breadcrumbs />
-      <MainContent />
-    </>
-  );
+  )
 }
 
 function SideNav() {
+  const location = useLocation()
+  if (location.pathname !== "/") {
+    return null
+  }
+
   return (
     <div id="side-nav">
       <header id="top-nav">
@@ -56,7 +51,17 @@ function SideNav() {
         </ul>
       </footer>
     </div>
-  );
+  )
+}
+
+function MainLayout() {
+  return (
+    <>
+      <TopNav />
+      <Breadcrumbs />
+      <MainContent />
+    </>
+  )
 }
 
 function TopNav() {
@@ -71,7 +76,7 @@ function TopNav() {
         <button>Sign Up</button>
       </Link>
     </header>
-  );
+  )
 }
 
 function Breadcrumbs() {
@@ -79,7 +84,7 @@ function Breadcrumbs() {
     <div id="breadcrumbs">
       <a href="#">Home</a> &gt; <a href="#">Teams</a> &gt; <span>Team Details</span>
     </div>
-  );
+  )
 }
 
 function MainContent() {
@@ -102,22 +107,22 @@ function MainContent() {
       <FantasyLinks />
       <ComparisonSection />
     </div>
-  );
+  )
 }
 
 function Controls() {
-  const [teamName, setTeamName] = useState("");
-  const [playerSearch, setPlayerSearch] = useState("");
-  const [positionFilter, setPositionFilter] = useState("all");
+  const [teamName, setTeamName] = useState("")
+  const [playerSearch, setPlayerSearch] = useState("")
+  const [positionFilter, setPositionFilter] = useState("all")
 
   const handleSaveTeamName = () => {
-    console.log("Saved Team Name:", teamName);
-    setTeamName("");
-  };
+    console.log("Saved Team Name:", teamName)
+    setTeamName("")
+  }
 
   const handleSearchPlayers = () => {
-    console.log("Search Players:", playerSearch, "Filter:", positionFilter);
-  };
+    console.log("Search Players:", playerSearch, "Filter:", positionFilter)
+  }
 
   return (
     <div className="controls-container">
@@ -149,7 +154,7 @@ function Controls() {
         <button onClick={handleSearchPlayers}>Search</button>
       </div>
     </div>
-  );
+  )
 }
 
 function FantasyLinks() {
@@ -163,7 +168,7 @@ function FantasyLinks() {
         <a href="https://hockey.fantasy.com" className="fantasy-btn hockey"></a>
       </div>
     </div>
-  );
+  )
 }
 
 function ComparisonSection() {
@@ -174,8 +179,7 @@ function ComparisonSection() {
       <button onClick={() => console.log("Compare Players")}>Compare</button>
       <div id="comparison-results"></div>
     </div>
-  );
+  )
 }
 
-export default App;
-
+export default App
