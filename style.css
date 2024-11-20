@@ -191,15 +191,18 @@ h1, h2, h3 {
 }
 
 #team-list, #player-list {
-  width: 48%; /* Sections take 48% of the container width */
-  background-color: #f4f4f4; /* Light gray background to add contrast */
-  background: linear-gradient(145deg, #ff4b5c, #ff7a77); /* Gradient effect for vibrant look */
+  width: 48%; /* Keep sections side by side */
+  background-color: #fff;
+  background: linear-gradient(145deg, #ff4b5c, #ff7a77); /* Consistent vibrant gradient background */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-  color: #fff; /* White text for readability */
-  margin-top: 20px; /* Add space between sections */
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 30px;
   transition: all 0.3s ease;
+  overflow-y: auto; /* Ensure content scrolls if too many items */
 }
 
 #team-list h3, #player-list h3 {
@@ -213,17 +216,16 @@ h1, h2, h3 {
 ul li {
   background-color: #fff; /* White background for list items */
   color: #333; /* Dark text for contrast */
-  padding: 12px 20px;
+  padding: 12px;
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 18px; /* Slightly larger text for better readability */
+  transition: background-color 0.3s ease;
 }
 
 ul li:hover {
-  background-color: #ff5733; /* Bright red background on hover */
-  color: #fff; /* White text on hover for contrast */
+  background-color: #ddd;
 }
 
 ul li:last-child {
@@ -233,11 +235,14 @@ ul li:last-child {
 /* Fantasy Links at the Bottom */
 .fantasy-links {
   background: linear-gradient(145deg, #00c6ff, #0072ff); /* Gradient from blue to lighter blue */
+  background-color: #fff;
+  border: 1px solid #ddd; /* Light border */
   padding: 20px;
   border-radius: 10px;
   color: #fff;
   margin-top: 30px; /* Add space above */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .fantasy-links h3 {
@@ -283,4 +288,173 @@ ul li:last-child {
   color: #007bff; /* Bright blue color for the header */
   font-weight: bold; /* Make it bold */
   margin-bottom: 20px; /* More space for a better visual hierarchy */
+}
+
+
+#breadcrumbs {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#breadcrumbs a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Highlight Active Sidebar Item */
+#side-nav nav ul li.active a {
+  background-color: #007bff;
+  color: white;
+}
+
+fantasy-league-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.fantasy-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.fantasy-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Background images for each sport */
+.fantasy-btn.basketball {
+  background-image: url('Basketball.png');
+}
+
+.fantasy-btn.baseball {
+  background-image: url('baseball-icon.png');
+}
+
+.fantasy-btn.soccer {
+  background-image: url('Soccer.png');
+}
+
+.fantasy-btn.hockey {
+  background-image: url('hockey-icon.png');
+}
+
+ 
+@media (max-width: 768px) {
+  #side-nav {
+    width: 200px;
+  }
+
+  #main-content {
+    margin-left: 200px;
+  }
+
+  .content-body {
+    flex-direction: column;
+  }
+}
+
+#side-nav nav ul li:first-child a {
+  background: linear-gradient(135deg, #ff7f50, #ff6347); /* Gradients for a warm, dynamic background */
+  padding: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#side-nav nav ul li:first-child a:hover {
+  background: linear-gradient(135deg, #ff6347, #ff4500); /* Lighter gradient on hover */
+}
+
+#players-list li {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+}
+
+#players-list li:hover {
+  background-color: #ddd;
+}
+
+.login-container, .signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2, .signup-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5733;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #ff6f47;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
