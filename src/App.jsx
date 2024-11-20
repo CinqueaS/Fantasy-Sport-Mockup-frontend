@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./index.css";
-import Login from "./components/login";
-import Signup from "./components/signup"
-import AboutUs from "./components/aboutUs";
+// import Login from "./components/Login";
+// import Signup from "./components/Signup"
+// import AboutUs from "./components/AboutUs";
+
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (

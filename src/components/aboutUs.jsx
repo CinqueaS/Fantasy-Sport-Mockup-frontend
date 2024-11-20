@@ -1,7 +1,7 @@
 import React from "react";
 import "../app.css";
 
-function aboutUs() {
+function AboutUs() {
   return (
     <div className="about-us-container">
       <h1>About Us</h1>
@@ -33,4 +33,4 @@ function aboutUs() {
   );
 }
 
-export default aboutUs;
+export default AboutUs;
