@@ -8,7 +8,7 @@ const teams = [
   let players = [
     { name: "Player 1", position: "QB", team: "Team A", ranking: 5 },
     { name: "Player 2", position: "RB", team: "Team B", ranking: 3 },
-    .
+    
 ];
 
 function filterPlayers() {

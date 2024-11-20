@@ -4,6 +4,8 @@ import "./index.css"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import AboutUs from "./components/AboutUs"
+import Players from './components/Players'  
+import Teams from './components/Teams'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/about-Us" element={<AboutUs />} />
+          <Route path="/players" element={<Players />} />
+          <Route path="/teams" element={<Teams />} />
         </Routes>
       </div>
     </Router>
@@ -37,8 +41,8 @@ function SideNav() {
       <nav>
         <ul>
           <li><Link to="/">Fantasy Football</Link></li>
-          <li><Link to="#">Teams</Link></li>
-          <li><Link to="#">Players</Link></li>
+          <li><Link to="/teams">Teams</Link></li>
+          <li><Link to="/players">Players</Link></li>
           <li><Link to="/about-Us" >About Us</Link></li>
         </ul>
       </nav>
@@ -96,11 +100,11 @@ function MainContent() {
       <div className="content-body">
         <div id="team-list">
           <h3>Teams</h3>
-          <ul id="teams-list"></ul>
+          <ul id="Teams.jsx"></ul>
         </div>
         <div id="player-list">
           <h3>Players</h3>
-          <ul id="players-list"></ul>
+          <ul id="Players.jsx"></ul>
         </div>
       </div>
       <Controls />
