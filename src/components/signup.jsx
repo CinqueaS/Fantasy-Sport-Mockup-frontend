@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../app.css'
 
 const Signup = (props) => {
@@ -8,7 +9,9 @@ const Signup = (props) => {
 
   return (
     <div className="auth-container">
-      <a href="/" className="home-link">Home</a>
+      <Link to="/" className="home-link">
+        <button className="auth-button">Home</button>
+      </Link>
       <div className="auth-box">
         <h2>Sign Up</h2>
         <form>

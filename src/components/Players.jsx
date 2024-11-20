@@ -8,7 +8,7 @@ const Players = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await axios.get('') 
+        const response = await axios.get('http://localhost:3000/players') 
         setPlayers(response.data)
       } catch (error) {
         console.error('Error fetching players:', error)

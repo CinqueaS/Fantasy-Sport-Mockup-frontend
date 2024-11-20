@@ -8,8 +8,15 @@ const Teams = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get('') 
-        setTeams(response.data)
+        const response = await axios.get('http://localhost:3000/users') 
+        const allUsers = response.data
+        let allTeams = []
+        for (let user of allUsers) {
+            if (user.team) {
+                allTeams.push(user.team)
+            }
+        }
+        setTeams(allTeams)
       } catch (error) {
         console.error('Error fetching teams:', error)
       }
@@ -24,7 +31,7 @@ const Teams = () => {
       <ul className="teams-list">
         {teams.map((team) => (
           <li key={team.id} className="team-item">
-            {team.name}
+            {team.teamName}
           </li>
         ))}
       </ul>
