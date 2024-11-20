@@ -1,68 +1,286 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  background-color: #f0f0f0; /* Lighter background */
+  color: #333; /* Dark text for contrast */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  flex-direction: column; /* Flex layout for vertical stacking */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Main Header */
+h1, h2, h3 {
+  color: #333;
+  text-align: center; /* Center align headers */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Left Sidebar */
+#side-nav {
+  width: 250px;
+  background-color: #ff5733; /* Bright red background for the sidebar */
+  color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-top: 20px;
+  text-align: center;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#side-nav header {
+  margin-bottom: 30px;
+}
+
+#side-nav header img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#side-nav h1 {
+  font-size: 26px; /* Larger font for the main title */
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+  text-transform: uppercase; /* Make it bold and standout */
+  letter-spacing: 1px; /* Increase letter spacing for a more dramatic effect */
+}
+
+#side-nav nav ul {
+  list-style: none;
+  margin-top: 40px;
+}
+
+#side-nav nav ul li {
+  margin-bottom: 15px;
+}
+
+#side-nav nav ul li a {
+  display: block;
+  color: #fff; /* White text for contrast */
+  font-size: 20px; /* Increase font size for visibility */
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold; /* Make navigation links bold */
+}
+
+#side-nav nav ul li a:hover {
+  background-color: #ff5733; /* Bright red background on hover */
+  color: #fff; /* Ensure text remains white on hover */
+}
+
+#side-nav footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; /* Arrange icons vertically */
+  align-items: center; /* Center-align the icons */
+  gap: 15px; /* Add space between icons */
+}
+
+#side-nav footer ul {
+  list-style: none;
+  padding: 0; /* Remove default padding */
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center;
+  gap: 10px; /* Space between icons */
+}
+
+#side-nav footer ul li {
+  margin-bottom: 0; /* Remove extra margin at the bottom */
+}
+
+#side-nav footer ul li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  background-color: #444; /* Default dark background for the icons */
+}
+
+#side-nav footer ul li a:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+
+/* Adjust individual icon background colors */
+.social-btn.facebook {
+  background-color: #3b5998; /* Facebook blue */
+}
+
+.social-btn.twitter {
+  background-color: #00acee; /* Twitter blue */
+}
+
+.social-btn.instagram {
+  background-color: #e4405f; /* Instagram pink */
+}
+
+.social-btn.linkedin {
+  background-color: #0077b5; /* LinkedIn blue */
+}
+
+#side-nav footer ul li a:hover {
+  background-color: #777; /* Lighter color on hover */
+}
+
+/* Top Navbar */
+#top-nav {
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#top-nav button {
+  background-color: #ff5733; /* Use a bright red background for buttons */
+  border: none;
+  padding: 12px 20px;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: bold; /* Make buttons stand out */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#top-nav button:hover {
+  background-color: #ff6f47; /* Slightly lighter red for hover */
+}
+
+/* Main Content */
+#main-content {
+  margin-left: 250px;
+  padding-top: 60px;
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff 0%, #ff5733 100%); /* Gradient from blue to red */
+  color: white; /* Ensure text is readable against the colorful background */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.content-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+#team-list, #player-list {
+  width: 48%; /* Sections take 48% of the container width */
+  background-color: #f4f4f4; /* Light gray background to add contrast */
+  background: linear-gradient(145deg, #ff4b5c, #ff7a77); /* Gradient effect for vibrant look */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  color: #fff; /* White text for readability */
+  margin-top: 20px; /* Add space between sections */
+  transition: all 0.3s ease;
+}
+
+#team-list h3, #player-list h3 {
+  font-size: 24px; /* Larger text size for better visibility */
+  margin-bottom: 20px; /* More space between heading and content */
+  color: #fff; /* White text for headings */
+  font-weight: bold; /* Make headings bold to stand out */
+}
+
+/* Make list items stand out */
+ul li {
+  background-color: #fff; /* White background for list items */
+  color: #333; /* Dark text for contrast */
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px; /* Slightly larger text for better readability */
+}
+
+ul li:hover {
+  background-color: #ff5733; /* Bright red background on hover */
+  color: #fff; /* White text on hover for contrast */
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Fantasy Links at the Bottom */
+.fantasy-links {
+  background: linear-gradient(145deg, #00c6ff, #0072ff); /* Gradient from blue to lighter blue */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 30px; /* Add space above */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.fantasy-links h3 {
+  font-size: 24px; /* Larger heading size */
+  margin-bottom: 15px;
+  color: #fff; /* White text for headings */
+  font-weight: bold;
+}
+
+.fantasy-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fantasy-links ul li {
+  margin-bottom: 10px;
+}
+
+.fantasy-links ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold; /* Make links bold */
+}
+
+.fantasy-links ul li a:hover {
+  background-color: #ff5733; /* Bright red on hover for contrast */
+  color: #fff; /* Keep white text on hover */
+}
+
+/* Adjust spacing for better layout in content */
+.content-body {
+  display: flex; /* Change to flexbox */
+  justify-content: space-between; /* Space between the two sections */
+  gap: 20px; /* Add some space between the two sections */
+}
+
+.content-header h2 {
+  font-size: 28px; /* Larger font for the "Your Teams" title */
+  color: #007bff; /* Bright blue color for the header */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 20px; /* More space for a better visual hierarchy */
 }

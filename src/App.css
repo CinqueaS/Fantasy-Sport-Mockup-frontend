@@ -1,42 +1,99 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0; /* Match body background */
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.auth-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.auth-button {
+  width: 100%;
+  background: #ff5733;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.card {
-  padding: 2em;
+.auth-button:hover {
+  background: #ff6f47;
 }
 
-.read-the-docs {
-  color: #888;
+.auth-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.about-us-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.about-us-container h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #ff5733;
+  margin-bottom: 20px;
+}
+
+.about-us-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-us-container ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.about-us-container li {
+  margin-bottom: 10px;
+}
+
+.about-us-container h3 {
+  text-align: right;
+  color: #007bff;
+  margin-top: 20px;
+  font-size: 24px;
 }
