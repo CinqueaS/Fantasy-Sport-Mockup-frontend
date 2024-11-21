@@ -1,13 +1,14 @@
 import { useState, createContext, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom"
-import "./index.css"
+import "./app.css"
 import Login from './components/login';
 import Signup from "./components/Signup"
 import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
 import Teams from './components/Teams'
-import * as authService from '../src/services/authService';
 import Landing from './components/Landing';
+import * as authService from '../src/services/authService';
+
 
 export const AuthedUserContext = createContext(null)
 
@@ -16,7 +17,7 @@ function App() {
   return (
     <AuthedUserContext.Provider value={user}>
 
-      {/* <SideNav  user={user}/> */}
+      
       <Routes>
         {user ? (
           <>
