@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./index.css";
-import Login from "./components/login";
-import Signup from "./components/signup"
-import AboutUs from "./components/aboutUs";
+import React, { useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom"
+import "./index.css"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import AboutUs from "./components/AboutUs"
+import Players from './components/Players'  
+import Teams from './components/Teams'
 
 function App() {
   return (
@@ -15,23 +17,20 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/about-Us" element={<AboutUs />} />
+          <Route path="/players" element={<Players />} />
+          <Route path="/teams" element={<Teams />} />
         </Routes>
       </div>
     </Router>
-  );
-}
-
-function MainLayout() {
-  return (
-    <>
-      <TopNav />
-      <Breadcrumbs />
-      <MainContent />
-    </>
-  );
+  )
 }
 
 function SideNav() {
+  const location = useLocation()
+  if (location.pathname !== "/") {
+    return null
+  }
+
   return (
     <div id="side-nav">
       <header id="top-nav">
@@ -42,8 +41,8 @@ function SideNav() {
       <nav>
         <ul>
           <li><Link to="/">Fantasy Football</Link></li>
-          <li><Link to="#">Teams</Link></li>
-          <li><Link to="#">Players</Link></li>
+          <li><Link to="/teams">Teams</Link></li>
+          <li><Link to="/players">Players</Link></li>
           <li><Link to="/about-Us" >About Us</Link></li>
         </ul>
       </nav>
@@ -56,7 +55,17 @@ function SideNav() {
         </ul>
       </footer>
     </div>
-  );
+  )
+}
+
+function MainLayout() {
+  return (
+    <>
+      <TopNav />
+      <Breadcrumbs />
+      <MainContent />
+    </>
+  )
 }
 
 function TopNav() {
@@ -71,7 +80,7 @@ function TopNav() {
         <button>Sign Up</button>
       </Link>
     </header>
-  );
+  )
 }
 
 function Breadcrumbs() {
@@ -79,7 +88,7 @@ function Breadcrumbs() {
     <div id="breadcrumbs">
       <a href="#">Home</a> &gt; <a href="#">Teams</a> &gt; <span>Team Details</span>
     </div>
-  );
+  )
 }
 
 function MainContent() {
@@ -91,33 +100,33 @@ function MainContent() {
       <div className="content-body">
         <div id="team-list">
           <h3>Teams</h3>
-          <ul id="teams-list"></ul>
+          <ul id="Teams.jsx"></ul>
         </div>
         <div id="player-list">
           <h3>Players</h3>
-          <ul id="players-list"></ul>
+          <ul id="Players.jsx"></ul>
         </div>
       </div>
       <Controls />
       <FantasyLinks />
       <ComparisonSection />
     </div>
-  );
+  )
 }
 
 function Controls() {
-  const [teamName, setTeamName] = useState("");
-  const [playerSearch, setPlayerSearch] = useState("");
-  const [positionFilter, setPositionFilter] = useState("all");
+  const [teamName, setTeamName] = useState("")
+  const [playerSearch, setPlayerSearch] = useState("")
+  const [positionFilter, setPositionFilter] = useState("all")
 
   const handleSaveTeamName = () => {
-    console.log("Saved Team Name:", teamName);
-    setTeamName("");
-  };
+    console.log("Saved Team Name:", teamName)
+    setTeamName("")
+  }
 
   const handleSearchPlayers = () => {
-    console.log("Search Players:", playerSearch, "Filter:", positionFilter);
-  };
+    console.log("Search Players:", playerSearch, "Filter:", positionFilter)
+  }
 
   return (
     <div className="controls-container">
@@ -149,7 +158,7 @@ function Controls() {
         <button onClick={handleSearchPlayers}>Search</button>
       </div>
     </div>
-  );
+  )
 }
 
 function FantasyLinks() {
@@ -163,7 +172,7 @@ function FantasyLinks() {
         <a href="https://hockey.fantasy.com" className="fantasy-btn hockey"></a>
       </div>
     </div>
-  );
+  )
 }
 
 function ComparisonSection() {
@@ -174,8 +183,7 @@ function ComparisonSection() {
       <button onClick={() => console.log("Compare Players")}>Compare</button>
       <div id="comparison-results"></div>
     </div>
-  );
+  )
 }
 
-export default App;
-
+export default App

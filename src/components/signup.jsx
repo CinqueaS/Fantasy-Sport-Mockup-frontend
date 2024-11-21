@@ -1,14 +1,17 @@
 import React from 'react'
-import '../app.css' 
+import { Link } from 'react-router-dom'
+import '../app.css'
 
 const Signup = (props) => {
   const handleSignup = () => {
-  
     alert('Signup successful')
   }
 
   return (
     <div className="auth-container">
+      <Link to="/" className="home-link">
+        <button className="auth-button">Home</button>
+      </Link>
       <div className="auth-box">
         <h2>Sign Up</h2>
         <form>
@@ -31,3 +34,4 @@ const Signup = (props) => {
 }
 
 export default Signup
+

@@ -1,25 +1,52 @@
+
 .auth-container {
+  margin-left: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f0f0f0; /* Match body background */
+  width: calc(100% - 250px);
+  background: linear-gradient(135deg, #ff8e47, #ffc371);
+  animation: gradientBG 5s infinite alternate;
+}
+
+@keyframes gradientBG {
+  0% { background: linear-gradient(135deg, #ff8e47, #ffc371); }
+  100% { background: linear-gradient(135deg, #ffc371, #ff8e47); }
 }
 
 .auth-box {
   width: 100%;
+  /* width: calc(100% - 250px); */
   max-width: 400px;
   background: #ffffff;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+.home-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box:hover {
+  transform: scale(1.05);
 }
 
 .auth-box h2 {
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 20px;
-  color: #333;
+  color: #ff5733;
+  text-transform: uppercase;
 }
 
 .auth-input {
@@ -27,25 +54,27 @@
   padding: 12px 15px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .auth-button {
   width: 100%;
-  background: #ff5733;
+  background: linear-gradient(90deg, #ff5733, #ff8e47);
   color: #fff;
   padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .auth-button:hover {
-  background: #ff6f47;
+  background: linear-gradient(90deg, #ff8e47, #ffc371);
+  transform: translateY(-3px);
 }
 
 .auth-link {
@@ -56,44 +85,188 @@
 
 .auth-link:hover {
   text-decoration: underline;
+  color: #0056b3;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #ff5733;
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5);
 }
 
 .about-us-container {
-  background-color: #f0f0f0;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 800px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  color: #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  margin: 40px auto;
+  border-radius: 20px;
+  max-width: 900px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
 .about-us-container h1 {
-  text-align: center;
-  font-size: 36px;
+  font-size: 42px;
   color: #ff5733;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .about-us-container p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.8;
   margin-bottom: 20px;
+  color: #444;
 }
 
 .about-us-container ul {
-  list-style-type: disc;
-  margin-left: 20px;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
   font-size: 18px;
 }
 
 .about-us-container li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.about-us-container li:before {
+  content: '✓';
+  color: #ff5733;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 20px;
 }
 
 .about-us-container h3 {
   text-align: right;
   color: #007bff;
-  margin-top: 20px;
-  font-size: 24px;
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .content-body {
+    flex-direction: column;
+  }
+
+  #team-list, #player-list {
+    width: 100%;
+  }
+}
+
+.teams-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff8e47, #ffc371);
+  min-height: 100vh;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teams-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.teams-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.team-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.team-item:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .teams-container {
+    padding: 10px;
+  }
+
+  .teams-title {
+    font-size: 1.5rem;
+  }
+
+  .team-item {
+    font-size: 1rem;
+  }
+}
+
+.players-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff8e47, #ffc371);
+  min-height: 100vh;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.players-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.players-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.player-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.player-item:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .players-container {
+    padding: 10px;
+  }
+
+  .players-title {
+    font-size: 1.5rem;
+  }
+
+  .player-item {
+    font-size: 1rem;
+  }
 }

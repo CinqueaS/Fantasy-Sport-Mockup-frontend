@@ -1,14 +1,17 @@
 import React from 'react'
-import '../app.css' 
+import { Link } from 'react-router-dom'
+import '../app.css'
 
 const Login = (props) => {
   const handleLogin = () => {
-    
     alert('Login successful')
   }
 
   return (
     <div className="auth-container">
+      <Link to="/" className="home-link">
+        <button className="auth-button">Home</button>
+      </Link>
       <div className="auth-box">
         <h2>Login</h2>
         <form>
