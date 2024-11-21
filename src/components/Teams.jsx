@@ -35,7 +35,9 @@ const Teams = () => {
       <ul className="teams-list">
         {teams.map((team) => (
           <li key={team.id} className="team-item">
-            {team.teamName}
+            <Link to={`/team/${team.name}`}>
+              {team.teamName}
+            </Link>
           </li>
         ))}
       </ul>
