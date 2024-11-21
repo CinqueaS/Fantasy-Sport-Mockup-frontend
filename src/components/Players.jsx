@@ -28,7 +28,9 @@ const Players = () => {
       <ul className="players-list">
         {players.map((player) => (
           <li key={player.id} className="player-item">
+            <Link to={`/players/${player.name}`}>
             {player.name}
+            </Link>
           </li>
         ))}
       </ul>
