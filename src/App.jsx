@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom"
-import "./app.css"
-import Login from './components/Login';
+import "./index.css"
+import Login from './components/login';
 import Signup from "./components/Signup"
 import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
