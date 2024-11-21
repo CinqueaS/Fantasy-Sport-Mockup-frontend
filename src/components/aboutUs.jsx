@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "../app.css";
+
 
 function AboutUs() {
   return (
     <div className="about-us-container">
+        <Link to="/" className="home-link">
+        <button className="auth-button">Home</button>
+        </Link>
       <h1>About Us</h1>
       <p>
         Welcome to <strong>Galactic Gridiron Fantasy League!</strong>, Here, we combine the thrill of football with the boundless possibilities of a sci-fi universe. In this league, you're not just managing players: you're commanding teams of genetically enhanced athletes, alien powerhouses, and cybernetic prodigies from across the cosmos. Each team represents a different planet, species, or faction, competing for the ultimate prize: the coveted Star Cup, the most prestigious trophy in the galax. With interstellar rivalries and high-stakes strategies, every game is an adventure beyond

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../app.css'
 
@@ -21,6 +22,9 @@ const Players = () => {
   return (
     <div className="players-container">
       <h1 className="players-title">Players</h1>
+      <Link to="/" className="home-link">
+        <button className="auth-button">Home</button>
+        </Link>
       <ul className="players-list">
         {players.map((player) => (
           <li key={player.id} className="player-item">
