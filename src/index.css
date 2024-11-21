@@ -35,12 +35,14 @@ h1, h2, h3 {
 
 #side-nav header {
   margin-bottom: 30px;
+  
 }
 
 #side-nav header img {
   width: 120px;
   height: auto;
   margin-bottom: 10px;
+  
 }
 
 #side-nav h1 {
@@ -55,10 +57,12 @@ h1, h2, h3 {
 #side-nav nav ul {
   list-style: none;
   margin-top: 40px;
+  
 }
 
 #side-nav nav ul li {
   margin-bottom: 15px;
+  background-color: #eb6547;
 }
 
 #side-nav nav ul li a {
