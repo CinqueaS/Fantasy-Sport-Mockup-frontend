@@ -36,7 +36,7 @@ const Login = ({ setUser }) => {
     <main className="auth-container">
       <div className="auth-box">
 
-        <h1>Log In</h1>
+        <h2>Log In</h2>
         <p>{message}</p>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div>
