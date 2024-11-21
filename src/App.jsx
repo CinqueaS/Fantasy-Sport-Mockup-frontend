@@ -32,7 +32,6 @@ function App() {
 
       </Routes>
     </AuthedUserContext.Provider>
-
   )
 }
 
