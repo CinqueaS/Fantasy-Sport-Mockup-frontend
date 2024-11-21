@@ -1,12 +1,13 @@
 import { useState, createContext, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from "react-router-dom"
-import "./index.css"
-import Login from './components/login';
+import { Routes, Route } from "react-router-dom"
+import "./app.css"
+import Login from './components/Login';
 import Signup from "./components/Signup"
 import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
 import Teams from './components/Teams'
 import * as authService from '../src/services/authService';
+import Landing from './components/Landing';
 
 export const AuthedUserContext = createContext(null)
 
@@ -24,7 +25,7 @@ function App() {
             <Route path="/teams" element={<Teams />} />
           </>
         ) : (
-          <Route path="/" element={<MainLayout />} />
+          <Route path="/" element={<Landing />} />
         )}
 
         <Route path="/login" element={<Login setUser={setUser} />} />
