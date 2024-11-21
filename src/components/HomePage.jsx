@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../app.css";
 
-const Landing = () => {
+const HomePage = () => {
   return (
     <div className="landing-container">
       <div className="landing-box">
@@ -25,4 +25,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default HomePage;
