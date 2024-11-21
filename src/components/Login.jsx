@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../app.css'
+import '../App.css'
 
-const Signup = (props) => {
-  const handleSignup = () => {
-    alert('Signup successful')
+const Login = (props) => {
+  const handleLogin = () => {
+    alert('Login successful')
   }
 
   return (
@@ -13,19 +13,18 @@ const Signup = (props) => {
         <button className="auth-button">Home</button>
       </Link>
       <div className="auth-box">
-        <h2>Sign Up</h2>
+        <h2>Login</h2>
         <form>
-          <input type="text" placeholder="Enter your name" className="auth-input" />
           <input type="email" placeholder="Enter your email" className="auth-input" />
           <input type="password" placeholder="Enter your password" className="auth-input" />
-          <button type="button" onClick={handleSignup} className="auth-button">
-            Sign Up
+          <button type="button" onClick={handleLogin} className="auth-button">
+            Login
           </button>
         </form>
         <p>
-          Already have an account?{' '}
-          <a href="/login" className="auth-link">
-            Login
+          Don't have an account?{' '}
+          <a href="/signup" className="auth-link">
+            Sign Up
           </a>
         </p>
       </div>
@@ -33,5 +32,4 @@ const Signup = (props) => {
   )
 }
 
-export default Signup
-
+export default Login
