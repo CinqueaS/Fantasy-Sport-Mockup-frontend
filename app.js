@@ -154,4 +154,3 @@ function comparePlayers() {
   `;
   document.getElementById('comparison-results').innerHTML = comparison;
 }
-
