@@ -72,7 +72,7 @@ function App() {
         {user ? (
           <>
             <Route path="/" element={
-              <HomePage />} 
+              <HomePage handleSignout={handleSignout} />} 
               />
               {/* About us Route */}
               <Route path="/about-Us" element={<AboutUs />} />
