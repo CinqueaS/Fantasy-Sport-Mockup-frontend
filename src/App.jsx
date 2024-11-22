@@ -15,6 +15,8 @@ export const AuthedUserContext = createContext(null)
 function App() {
   // Landing wont render because of the way this line is being used. That is the main issue.
   const [user, setUser] = useState(authService.getUser())
+  const [players, setlayers] = useState([]) // Hoot posts
+  const [teams, setTeams] = useState([]) // Hoot posts
 
   const handleSignout = () => {
     authService.signout()

@@ -68,7 +68,9 @@ const getSupernaturalPlayers = async () => {
 
 const create = async (formData) => {
   try {
-    const res = await axios.post(BASE_URL, formData)
+    const res = await axios.post(BASE_URL, formData, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
     return res.data
   } catch (error) {
     console.log(error)
@@ -78,16 +80,20 @@ const create = async (formData) => {
 
 const update = async (formData, playerId) => {
   try {
-    const res = await axios.put(`${BASE_URL}/${playerId}`, formData)
+    const res = await axios.put(`${BASE_URL}/${playerId}`, formData, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
     return res.data
   } catch (error) {
     console.log(error)
   }
 }
 
-const deleteplayer = async (playerId) => {
+const deletePlayer = async (playerId) => {
   try {
-    const res = await axios.delete(`${BASE_URL}/${playerId}`)
+    const res = await axios.delete(`${BASE_URL}/${playerId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
     return res.data
   } catch (error) {
     console.log(error)
@@ -105,5 +111,5 @@ export {
   show,
   create,
   update,
-  deleteplayer
+  deletePlayer
 }
