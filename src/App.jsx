@@ -10,6 +10,7 @@ import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
 import Teams from './components/Teams'
 import TeamInfo from './components/TeamInfo'
+import TeamForm from './components/TeamForm'
 import PlayerInfo from './components/PlayersInfo'
 
 import * as authService from '../src/services/authService'
@@ -26,7 +27,7 @@ function App() {
   const [allUsers, setAllUsers] = useState([]) // ALL users, may be shown on page
   const [players, setPlayers] = useState([]) // All players
   const [teams, setTeams] = useState([]) // ALL teams
-
+  const [selectedTeam, setSelectedTeam] = useState(null)
   useEffect(() => {
 
     async function getAllPlayers() {
@@ -61,8 +62,37 @@ function App() {
   }
 
   /* console.log(players) */
+  const createTeam = async (userId, formData) => {
+    try {
+      const newTeam = await teamsService.create(userId, formData)
+      if (newTeam.error) {
+        throw new Error(newTeam.error)
+      }
+      setTeams([newTeam, ...teams])
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
+  const updateTeam = async (userId, teamId, formData) => {
+    try {
+      const updatedTeam = await teamsService.update(userId, teamId, formData)
 
+      if (updatedTeam.error) {
+        throw new Error (updatedTeam.error)
+      }
+
+      const updatedTeams = teams.map((team) => 
+        team._id !== updatedTeam._id ? team : updatedTeam
+      )
+
+      setTeams(updatedTeams)
+      setSelectedTeam(updatedTeam)
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <AuthedUserContext.Provider value={user}>
@@ -84,6 +114,7 @@ function App() {
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
               <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
+              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} />} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />
