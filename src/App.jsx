@@ -61,7 +61,7 @@ function App() {
     setUser(null)
   }
 
-  /* console.log(players) */
+
   const createTeam = async (userId, formData) => {
     try {
       const newTeam = await teamsService.create(userId, formData)
@@ -93,6 +93,17 @@ function App() {
       console.log(error)
     }
   }
+
+  /* Sets the selected team to whoever is logged in if they have one */
+  async function updateSelectedTeam(loggedUser) {
+    const loggedUserId = loggedUser._id
+    const userData = await userService.show(loggedUserId)
+    if (userData.team) {
+      setSelectedTeam(userData.team)
+    }
+  }
+
+  updateSelectedTeam(user)
 
   return (
     <AuthedUserContext.Provider value={user}>

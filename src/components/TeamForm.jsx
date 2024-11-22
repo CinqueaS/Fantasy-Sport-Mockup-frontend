@@ -12,7 +12,7 @@ const TeamForm = (props) => {
 const [formData, setFormData] = useState(props.selectedTeam ? props.selectedTeam : DefaultState)
 
 const handleChange = (evt) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value });
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
 }
 
 const handleSubmitForm =  (evt) => {
