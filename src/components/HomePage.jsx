@@ -23,6 +23,9 @@ const HomePage = ({ handleSignout }) => {
             <Link to="/teams" className="landing-button"> 
               See Teams! 
             </Link>
+            <Link to="/teams/creator" className="landing-button">
+              Create a Team!
+            </Link>
           </div>
     </>
   )
