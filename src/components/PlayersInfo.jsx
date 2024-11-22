@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 
 const PlayerInfo = (props) => {
 
-    console.log(props) // Always verify that any props are being passed correctly!
+    console.log(`the props`, props) // Always verify that any props are being passed correctly!
 
     // Pull the NAME of selected Player into a variable
     const { playerName } = useParams()
