@@ -25,16 +25,13 @@ const PlayerInfo = (props) => {
 
     if (!singlePlayer)
         return (
-        <div>
-            <h2> No player selected </h2>
-        </div>
+            <div>
+                <h2> No player selected </h2>
+            </div>
     )
 
     return (
         <div>
-            <Link to="/" className="home-link">
-            <button className="auth-button">Home</button>
-            </Link>
             <h1>{singlePlayer.name}</h1>
             <h3>Gender: {singlePlayer.gender}</h3>
             <h3>Position: {singlePlayer.position}</h3>
@@ -46,7 +43,13 @@ const PlayerInfo = (props) => {
             <h3>Interceptions: {singlePlayer.interceptions}</h3>
             <h3>Fantasy Points: {singlePlayer.fantasyPoints}</h3>
 
+            {singlePlayer.isDrafted ? (
+                <Link to={`/teams/${singlePlayer.owner_id.team._id}`}>
+                <p>Drafted to the {singlePlayer.owner_id.team.teamName}</p>
+                </Link>
+                ) : (
             <button onClick={() => props.handleFormView(singlePlayer)}>Add to team</button>
+        )}
         </div>
     )
     
