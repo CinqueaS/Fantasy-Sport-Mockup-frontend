@@ -60,7 +60,7 @@ function App() {
     setUser(null)
   }
 
-  console.log(players)
+  /* console.log(players) */
 
 
 
@@ -79,11 +79,11 @@ function App() {
 
               {/* Player Routes, all of them and specific one below */}
               <Route path="/Players" element={<Players players={players} />} />
-              <Route path="/Players/:playerName" element={<PlayerInfo players={players} />} />
+              <Route path="/Players/:playerId" element={<PlayerInfo players={players} />} />
 
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
-              <Route path="/Teams/:teamName" element={<TeamInfo teams={teams} />} />
+              <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />
