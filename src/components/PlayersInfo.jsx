@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const PlayerInfo = (props) => {
 
@@ -25,9 +26,9 @@ const PlayerInfo = (props) => {
 
     if (!singlePlayer)
         return (
-        <div>
-            <h2> No player selected </h2>
-        </div>
+            <div>
+                <h2> No player selected </h2>
+            </div>
     )
 
     return (
@@ -42,7 +43,14 @@ const PlayerInfo = (props) => {
             <h3>Touchdowns: {singlePlayer.touchdowns}</h3>
             <h3>Interceptions: {singlePlayer.interceptions}</h3>
             <h3>Fantasy Points: {singlePlayer.fantasyPoints}</h3>
+
+            {singlePlayer.isDrafted ? (
+                <Link to={`/teams/${singlePlayer.owner_id.team._id}`}>
+                <p>Drafted to the {singlePlayer.owner_id.team.teamName}</p>
+                </Link>
+                ) : (
             <button onClick={() => props.handleFormView(singlePlayer)}>Add to team</button>
+        )}
         </div>
     )
     
