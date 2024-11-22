@@ -1,27 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AboutUs from "./components/AboutUs"
+import Players from './components/Players'
+import Teams from './components/Teams'
 import "../app.css";
 
 const HomePage = () => {
   return (
-    <div className="landing-container">
-      <div className="landing-box">
-        <h1 className="landing-title">Welcome to the Galactic Gridiron!</h1>
-        <p className="landing-description">
-          Dive into a universe of interstellar sports and cosmic competition.
-          Manage teams of alien athletes, upgrade your tech, and compete for
-          the ultimate glory!
-        </p>
+
         <div className="landing-buttons">
-          <Link to="/signup" className="landing-button">
-            Get Started
-          </Link>
-          <Link to="/about-us" className="landing-link">
-            Learn More
-          </Link>
+          <Link to="/players" className="landing-button">Players</Link>
+          <Link to="/teams" className="landing-button">Players</Link>
+          <Link to="/about-us" className="landing-link"> About Us</Link>
         </div>
-      </div>
-    </div>
   );
 };
 

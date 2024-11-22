@@ -25,7 +25,7 @@ const Login = ({ setUser }) => {
     try {
       const user = await authService.signin(formData)
       setUser(user)
-      navigate('/landing')
+      navigate('/')
     } catch (err) {
       updateMessage(err.message)
     }
