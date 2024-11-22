@@ -17,6 +17,7 @@ const PlayerInfo = (props) => {
         try {
           await teamService.addPlayerToTeam(props.userId, props.teamId, singlePlayer._id);
           alert(`${singlePlayer.name} has been added to the team!`);
+           props.handlePlayerAddition(singlePlayer)
         } catch (error) {
           console.error("Error adding player:", error);
           alert("Failed to add player. Please try again.");
