@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../App.css"
 
 const TeamForm = (props) => {
-
+    const navigate = useNavigate()
     const DefaultState = {
         teamName: '',
         motto: '',
@@ -21,8 +21,10 @@ const handleSubmitForm =  (evt) => {
     evt.preventDefault()
     if (props.selectedTeam) {
         props.updateTeam(formData, props.selectedTeam._id)
+        navigate('/Teams/:teamId')
     } else {
         props.createTeam(props.user._id, formData)
+        navigate('/Teams')
     }
 }
     

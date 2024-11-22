@@ -105,6 +105,13 @@ function App() {
 
   updateSelectedTeam(user)
 
+  const handlePlayerAddition = (player) => {
+    setSelectedTeam((prevTeam) => ({
+      ...prevTeam,
+      players: [...(prevTeam?.players || []), player],
+    }));
+  };
+
   return (
     <AuthedUserContext.Provider value={user}>
 
@@ -120,7 +127,7 @@ function App() {
 
               {/* Player Routes, all of them and specific one below */}
               <Route path="/Players" element={<Players players={players} />} />
-              <Route path="/Players/:playerId" element={<PlayerInfo players={players} />} />
+              <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} />} />
 
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
