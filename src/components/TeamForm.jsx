@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom"
+import "../App.css"
 
 const TeamForm = (props) => {
 
@@ -25,7 +27,11 @@ const handleSubmitForm =  (evt) => {
 }
     
     return (
-        <div>
+        <main className='auth-container'>
+        <div className='auth-box'>
+             <Link to="/" className="home-link">
+                <button className="auth-button">Home</button>
+                </Link>
              <form onSubmit={handleSubmitForm}>
                 <label htmlFor='teamName'>Team Name:</label>
                 <input
@@ -51,9 +57,10 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-                <button type='submit'>{props.selectedTeam ? "Update Team" : "Create This Team"} </button>
+                <button className="landing-button" type='submit'>{props.selectedTeam ? "Update Team" : "Create This Team"} </button>
              </form>
         </div>
+    </main>
     )
 }
 

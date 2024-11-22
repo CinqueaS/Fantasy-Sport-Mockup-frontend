@@ -88,7 +88,7 @@ function App() {
 
       setTeams(updatedTeams)
       setSelectedTeam(updatedTeam)
-      
+
     } catch (error) {
       console.log(error)
     }
@@ -102,7 +102,7 @@ function App() {
         {user ? (
           <>
             <Route path="/" element={
-              <HomePage />} 
+              <HomePage handleSignout={handleSignout} />} 
               />
               {/* About us Route */}
               <Route path="/about-Us" element={<AboutUs />} />
