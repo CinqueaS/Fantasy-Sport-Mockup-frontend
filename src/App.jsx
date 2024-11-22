@@ -127,7 +127,7 @@ function App() {
 
               {/* Player Routes, all of them and specific one below */}
               <Route path="/Players" element={<Players players={players} />} />
-              <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} />} />
+              <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} />} />
 
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
