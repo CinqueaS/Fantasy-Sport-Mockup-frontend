@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom"
-import "./app.css"
-import Login from './components/login';
+import "./App.css"
+import Login from './components/Login';
 import Signup from "./components/Signup"
 import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
@@ -13,6 +13,7 @@ import * as authService from '../src/services/authService';
 export const AuthedUserContext = createContext(null)
 
 function App() {
+  // Landing wont render because of the way this line is being used. That is the main issue.
   const [user, setUser] = useState(authService.getUser())
   return (
     <AuthedUserContext.Provider value={user}>
@@ -29,8 +30,8 @@ function App() {
           <Route path="/" element={<Landing />} />
         )}
 
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login /* setUser={setUser} */ />} />
+        <Route path="/signup" element={<Signup /* setUser={setUser} */ />} />
 
       </Routes>
     </AuthedUserContext.Provider>
