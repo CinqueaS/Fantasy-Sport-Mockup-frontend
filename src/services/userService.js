@@ -3,7 +3,7 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/users`
 
 
 
-const indexUsers = async () => {
+const index = async () => {
   try {
     const res = await axios.get(BASE_URL)
     return res.data
@@ -12,7 +12,7 @@ const indexUsers = async () => {
   }
 }
   
-const showUsers = async (userId) => {
+const show = async (userId) => {
 try {
     const res = await axios.get(`${BASE_URL}/${userId}`)
     return res.data
@@ -23,6 +23,6 @@ try {
 
 
 export {
-  indexUsers,
-  showUsers,
+  index,
+  show,
 }
