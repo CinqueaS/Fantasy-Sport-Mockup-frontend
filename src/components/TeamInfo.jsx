@@ -38,13 +38,12 @@ const TeamInfo = (props) => {
     return (
         <>
             <div>
-                <h1>{singleTeam.name}</h1>
+                <h1>{singleTeam.teamName}</h1>
                 <h3>{singleTeam.motto}</h3>
                 <h3>Playing Style: {singleTeam.playingStyle}</h3>
                 <h3>Fantasy Points: {singleTeam.totalFantasyPoints}</h3>
             </div>
 
-            <h1>Players</h1>
             <div className="players-container">
                 <h1 className="players-title">Players</h1>
                 <Link to="/" className="home-link">
@@ -53,7 +52,7 @@ const TeamInfo = (props) => {
                 <ul className="players-list">
                     {singleTeam.team_member_ids.map((teamMember) => (
                     <li key={teamMember.id} className="player-item">
-                        <Link to={`/players/${teamMember.id}`}>
+                        <Link to={`/players/${teamMember._id}`}>
                         {teamMember.name}
                         </Link>
                     </li>
