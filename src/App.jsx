@@ -3,10 +3,15 @@ import { Routes, Route } from "react-router-dom"
 import "./App.css"
 import Login from './components/Login'
 import Signup from "./components/Signup"
+import Landing from './components/Landing'
+import HomePage from './components/HomePage'
+
 import AboutUs from "./components/AboutUs"
 import Players from './components/Players'
 import Teams from './components/Teams'
-import Landing from './components/Landing'
+import TeamInfo from './components/TeamInfo'
+import PlayerInfo from './components/PlayersInfo'
+
 import * as authService from '../src/services/authService'
 import * as playersService from '../src/services/playersService'
 import * as userService from '../src/services/userService'
@@ -55,7 +60,7 @@ function App() {
     setUser(null)
   }
 
-  console.log(user)
+  console.log(players)
 
 
 
@@ -66,9 +71,19 @@ function App() {
       <Routes>
         {user ? (
           <>
-            <Route path="/about-Us" element={<AboutUs />} />
-            <Route path="/players" element={<Players />} />
-            <Route path="/teams" element={<Teams />} />
+            <Route path="/" element={
+              <HomePage />} 
+              />
+              {/* About us Route */}
+              <Route path="/about-Us" element={<AboutUs />} />
+
+              {/* Player Routes, all of them and specific one below */}
+              <Route path="/Players" element={<Players players={players} />} />
+              <Route path="/Players/:playerName" element={<PlayerInfo players={players} />} />
+
+              {/* Team Routes, all of them and specific one below */}
+              <Route path="/Teams" element={<Teams teams={teams} />} />
+              <Route path="/Teams/:teamName" element={<TeamInfo teams={teams} />} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />
