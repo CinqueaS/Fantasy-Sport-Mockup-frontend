@@ -88,7 +88,7 @@ function App() {
 
       setTeams(updatedTeams)
       setSelectedTeam(updatedTeam)
-      
+
     } catch (error) {
       console.log(error)
     }
