@@ -26,4 +26,3 @@ const Players = (props) => {
 }
 
 export default Players
-
