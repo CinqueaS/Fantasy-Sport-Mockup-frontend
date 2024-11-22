@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 const PlayerInfo = (props) => {
 
@@ -32,6 +32,9 @@ const PlayerInfo = (props) => {
 
     return (
         <div>
+            <Link to="/" className="home-link">
+            <button className="auth-button">Home</button>
+            </Link>
             <h1>{singlePlayer.name}</h1>
             <h3>Gender: {singlePlayer.gender}</h3>
             <h3>Position: {singlePlayer.position}</h3>
@@ -42,6 +45,7 @@ const PlayerInfo = (props) => {
             <h3>Touchdowns: {singlePlayer.touchdowns}</h3>
             <h3>Interceptions: {singlePlayer.interceptions}</h3>
             <h3>Fantasy Points: {singlePlayer.fantasyPoints}</h3>
+
             <button onClick={() => props.handleFormView(singlePlayer)}>Add to team</button>
         </div>
     )

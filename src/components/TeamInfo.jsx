@@ -53,7 +53,7 @@ const TeamInfo = (props) => {
                 <ul className="players-list">
                     {singleTeam.team_member_ids.map((teamMember) => (
                     <li key={teamMember.id} className="player-item">
-                        <Link to={`/players/${teamMember.id}`}>
+                        <Link to={`/players/${teamMember._id}`}>
                         {teamMember.name}
                         </Link>
                     </li>

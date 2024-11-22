@@ -15,7 +15,7 @@ const Players = (props) => {
       <ul className="players-list">
         {props.players.map((player) => (
           <li key={player.id} className="player-item">
-            <Link to={`/players/${player.id}`}>
+            <Link to={`/players/${player._id}`}>
             {player.name}
             </Link>
           </li>
