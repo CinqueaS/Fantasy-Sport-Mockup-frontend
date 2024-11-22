@@ -30,8 +30,8 @@ function App() {
           <Route path="/" element={<Landing />} />
         )}
 
-        <Route path="/login" element={<Login /* setUser={setUser} */ />} />
-        <Route path="/signup" element={<Signup /* setUser={setUser} */ />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
 
       </Routes>
     </AuthedUserContext.Provider>
