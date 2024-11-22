@@ -1,19 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import AboutUs from "./components/AboutUs"
-import Players from './components/Players'
-import Teams from './components/Teams'
-import "../app.css";
+import React from "react"
+import { Link, Route, Routes } from "react-router-dom"
+
+import "../App.css"
 
 const HomePage = () => {
   return (
+    <>
+      <h2>Your time is up, my time is now!</h2>
+          <div className="landing-buttons">
+            <Link to="/about-Us" className="landing-button"> 
+              About Us! 
+            </Link>
+            <Link to="/players" className="landing-button"> 
+              See Players! 
+            </Link>
+            <Link to="/teams" className="landing-button"> 
+              See Teams! 
+            </Link>
+          </div>
+    </>
+  )
+}
 
-        <div className="landing-buttons">
-          <Link to="/players" className="landing-button">Players</Link>
-          <Link to="/teams" className="landing-button">Players</Link>
-          <Link to="/about-us" className="landing-link"> About Us</Link>
-        </div>
-  );
-};
-
-export default HomePage;
+export default HomePage

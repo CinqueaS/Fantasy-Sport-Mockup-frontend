@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import * as authService from '../services/authService';
+import { useState } from 'react'
+import * as authService from '../services/authService'
 import { useNavigate, Link } from 'react-router-dom'
 import '../App.css'
 
@@ -7,25 +7,25 @@ const Signup = (props) => {
 
 
   const navigate = useNavigate()
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [message, setMessage] = useState([''])
 
   const updateMessage = (msg) => {
-    setMessage(msg);
+    setMessage(msg)
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = { username, password };
+    e.preventDefault()
+    const formData = { username, password }
     try {
-      const newUser = await authService.signup(formData);
-      props.setUser(newUser.user);
-      navigate('/login');
+      const newUser = await authService.signup(formData)
+      props.setUser(newUser.user)
+      navigate('/login')
     } catch (err) {
-      updateMessage(err.message);
+      updateMessage(err.message)
     }
-  };
+  }
 
   return (
     <div className="auth-container">
@@ -59,7 +59,7 @@ const Signup = (props) => {
 
     </div>
 
-  );
-};
+  )
+}
 export default Signup
 
