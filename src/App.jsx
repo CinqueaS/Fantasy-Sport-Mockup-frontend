@@ -125,7 +125,7 @@ function App() {
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
               <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
-              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} />} />
+              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user}/>} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />

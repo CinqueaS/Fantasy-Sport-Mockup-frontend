@@ -6,8 +6,8 @@ const TeamForm = (props) => {
 
     const DefaultState = {
         teamName: '',
-        teamMotto: '',
-        teamPlaystyle: ''
+        motto: '',
+        playingStyle: ''
     }
 
 // if Editing a team fills the form with that teams info otherwise form is empty
@@ -20,9 +20,9 @@ const handleChange = (evt) => {
 const handleSubmitForm =  (evt) => {
     evt.preventDefault()
     if (props.selectedTeam) {
-        props.handleUpdateTeam(formData, props.selectedTeam._id)
+        props.updateTeam(formData, props.selectedTeam._id)
     } else {
-        props.handleAddTeam(formData)
+        props.createTeam(props.user._id, formData)
     }
 }
     
@@ -41,19 +41,19 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor='teamMotto'>Team Motto:</label>
+                <label htmlFor='motto'>Team Motto:</label>
                 <input
-                    id="teamMotto"
-                    name="teamMotto"
-                    value={formData.teamMotto}
+                    id="motto"
+                    name="motto"
+                    value={formData.motto}
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor='teamPlaystyle'>Team Playstyle:</label>
+                <label htmlFor='playingStyle'>Team Playstyle:</label>
                 <input
-                    id="teamPlaystyle"
-                    name="teamPlaystyle"
-                    value={formData.teamPlaystyle}
+                    id="playingStyle"
+                    name="playingStyle"
+                    value={formData.playingStyle}
                     onChange={handleChange}
                     required
                 />
