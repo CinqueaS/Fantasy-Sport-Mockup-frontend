@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 import { Link } from 'react-router-dom'
-import "../App.css";
+import "../App.css"
 
 
 function AboutUs() {
@@ -31,7 +31,7 @@ function AboutUs() {
       <h3>Let the games begin!</h3>
       <p>Galactic Gridiron Fantasy League!</p>
     </div>
-  );
+  )
 }
 
-export default AboutUs;
+export default AboutUs

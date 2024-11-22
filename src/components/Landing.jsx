@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import React from "react"
+import { Link } from "react-router-dom"
+import "../App.css"
 
 const Landing = () => {
   return (
@@ -22,7 +22,7 @@ const Landing = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Landing;
+export default Landing
