@@ -1,17 +1,20 @@
 import { useParams } from "react-router-dom"
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import '../App.css'
 
 const TeamInfo = (props) => {
 
-    console.log(props) // Always verify that any props are being passed correctly!
+    console.log('The props!', props)
 
     // Pull the NAME of selected Team into a variable
-    const { teamName } = useParams()
+    const { teamId } = useParams()
     
-    console.log('team NAME:', teamName)
+    console.log('team ID:', teamId)
 
     // Locates team with find(), so we can render data of that Team only!
     const singleTeam = props.teams.find((team) => 
-        team.name === teamName) /* Finds team by its NAME */
+        team._id === teamId) /* Finds team by its ID */
     console.log('Team Object:', singleTeam)
 
 
@@ -25,7 +28,7 @@ const TeamInfo = (props) => {
 
 
 
-    if (!props.team)
+    if (!singleTeam)
         return (
         <div>
             <h2> No team selected </h2>
@@ -35,10 +38,10 @@ const TeamInfo = (props) => {
     return (
         <>
             <div>
-                <h1>{props.team.name}</h1>
-                <h3>{props.team.motto}</h3>
-                <h3>Playing Style: {props.team.playingStyle}</h3>
-                <h3>Fantasy Points: {props.team.totalFantasyPoints}</h3>
+                <h1>{singleTeam.name}</h1>
+                <h3>{singleTeam.motto}</h3>
+                <h3>Playing Style: {singleTeam.playingStyle}</h3>
+                <h3>Fantasy Points: {singleTeam.totalFantasyPoints}</h3>
             </div>
 
             <h1>Players</h1>
@@ -48,9 +51,9 @@ const TeamInfo = (props) => {
                     <button className="auth-button">Home</button>
                 </Link>
                 <ul className="players-list">
-                    {props.team.team_member_ids.map((teamMember) => (
+                    {singleTeam.team_member_ids.map((teamMember) => (
                     <li key={teamMember.id} className="player-item">
-                        <Link to={`/players/${teamMember.name}`}>
+                        <Link to={`/players/${teamMember.id}`}>
                         {teamMember.name}
                         </Link>
                     </li>
