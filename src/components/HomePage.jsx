@@ -9,11 +9,10 @@ const HomePage = ({ handleSignout }) => {
   const user = useContext(AuthedUserContext)
   return (
     <>
-      <h2>Welcome to our page, {user.username}</h2>
-      <Link to="/" className="home-link" onClick={handleSignout}>
-        <button className="auth-button">Sign Out</button>
-        </Link>
-          <div className="landing-buttons">
+      <h1>Welcome {user.username}</h1>
+      
+          <div className="landing-container">
+            <img src="/Fant-Sport-Image.avif" alt="Fant-Sports Img" />
             <Link to="/about-Us" className="landing-button"> 
               About Us! 
             </Link>
@@ -25,6 +24,9 @@ const HomePage = ({ handleSignout }) => {
             </Link>
             <Link to="/teams/creator" className="landing-button">
               Create a Team!
+            </Link>
+            <Link to="/" className="home-link" onClick={handleSignout}>
+            <button className="landing-button">Sign Out</button>
             </Link>
           </div>
     </>

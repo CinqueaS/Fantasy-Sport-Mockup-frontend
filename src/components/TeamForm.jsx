@@ -32,8 +32,9 @@ const handleSubmitForm =  (evt) => {
         <main className='auth-container'>
         <div className='auth-box'>
              <Link to="/" className="home-link">
-                <button className="auth-button">Home</button>
+                <button className="auth-button">Go</button>
                 </Link>
+                <h2>{props.selectedTeam ? "Update Your Team" : "Create Your Team"}</h2>
              <form onSubmit={handleSubmitForm}>
                 <label htmlFor='teamName'>Team Name:</label>
                 <input
