@@ -15,6 +15,12 @@ export const AuthedUserContext = createContext(null)
 function App() {
   // Landing wont render because of the way this line is being used. That is the main issue.
   const [user, setUser] = useState(authService.getUser())
+
+  const handleSignout = () => {
+    authService.signout()
+    setUser(null)
+  }
+
   return (
     <AuthedUserContext.Provider value={user}>
 
