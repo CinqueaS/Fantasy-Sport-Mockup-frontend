@@ -63,7 +63,7 @@ const PlayerInfo = (props) => {
 
             {singlePlayer.isDrafted ? (
                 <Link to={`/teams/${singlePlayer.owner_id.team._id}`}>
-                <p>Drafted to the {singlePlayer.owner_id.team.teamName}</p>
+                <h3>Drafted to the {singlePlayer.owner_id.team.teamName}</h3>
                 </Link>
                 ) : (
             <button onClick={handleAddPlayer}>Add to team</button>

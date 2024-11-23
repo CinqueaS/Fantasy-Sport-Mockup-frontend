@@ -5,7 +5,7 @@ import '../App.css'
 
 const Teams = (props) => {
   const teams = props.teams
-  console.log(teams)
+  /* console.log(teams) */
 
   return (
     <div className="teams-container">

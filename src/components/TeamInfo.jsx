@@ -5,17 +5,17 @@ import '../App.css'
 
 const TeamInfo = (props) => {
 
-    console.log('The props!', props)
+    /* console.log('The props!', props) */
 
     // Pull the NAME of selected Team into a variable
     const { teamId } = useParams()
     
-    console.log('team ID:', teamId)
+    /* console.log('team ID:', teamId) */
 
     // Locates team with find(), so we can render data of that Team only!
     const singleTeam = props.teams.find((team) => 
         team._id === teamId) /* Finds team by its ID */
-    console.log('Team Object:', singleTeam)
+    /* console.log('Team Object:', singleTeam) */
 
 
     // This code will work when we place the axios calls in the right spot, like App.jsx
@@ -42,6 +42,7 @@ const TeamInfo = (props) => {
                 <h3>{singleTeam.motto}</h3>
                 <h3>Playing Style: {singleTeam.playingStyle}</h3>
                 <h3>Fantasy Points: {singleTeam.totalFantasyPoints}</h3>
+                <h3>{singleTeam.description}</h3>
             </div>
 
             <div className="players-container">

@@ -79,10 +79,10 @@ function App() {
       const updatedTeam = await teamsService.update(userId, teamId, formData)
 
       if (updatedTeam.error) {
-        throw new Error (updatedTeam.error)
+        throw new Error(updatedTeam.error)
       }
 
-      const updatedTeams = teams.map((team) => 
+      const updatedTeams = teams.map((team) =>
         team._id !== updatedTeam._id ? team : updatedTeam
       )
 
@@ -114,10 +114,14 @@ function App() {
     const userData = await userService.show(loggedUserId)
     if (userData.team) {
       setSelectedTeam(userData.team)
+    } else {
+      setSelectedTeam(null)
     }
   }
 
-  updateSelectedTeam(user)
+  if (user) {
+    updateSelectedTeam(user)
+  }
 
   const handlePlayerAddition = (player) => {
     setSelectedTeam((prevTeam) => ({
@@ -131,29 +135,26 @@ function App() {
   return (
     <AuthedUserContext.Provider value={user}>
 
-      
+
       <Routes>
         {user ? (
           <>
             <Route path="/" element={
-              <HomePage handleSignout={handleSignout} />} 
-              />
-              {/* About us Route */}
-              <Route path="/about-Us" element={<AboutUs />} />
+              <HomePage handleSignout={handleSignout} />}
+            />
+            {/* Player Routes, all of them and specific one below */}
+            <Route path="/Players" element={<Players players={players} />} />
+            <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} />} />
 
-              {/* Player Routes, all of them and specific one below */}
-              <Route path="/Players" element={<Players players={players} />} />
-              <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} />} />
-
-              {/* Team Routes, all of them and specific one below */}
-              <Route path="/Teams" element={<Teams teams={teams} />} />
-              <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} selectedTeam={selectedTeam}/>} />
-              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam}  updateTeam={updateTeam} selectedTeam={selectedTeam} user={user}/>} />
+            {/* Team Routes, all of them and specific one below */}
+            <Route path="/Teams" element={<Teams teams={teams} />} />
+            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
+            <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user} />} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />
         )}
-
+        <Route path="/about-Us" element={<AboutUs />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
 
