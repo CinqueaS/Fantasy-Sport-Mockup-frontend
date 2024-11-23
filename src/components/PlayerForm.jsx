@@ -5,10 +5,17 @@ import "../App.css"
 const PlayerForm = (props) => {
     const navigate = useNavigate()
     const DefaultState = {
-        playerName: '',
-        motto: '',
-        description: '',
-        playingStyle: ''
+        name: '',
+        gender: '',
+        position: '',
+        species: '',
+        isSupernatural: '',
+        heightCm: '',
+        weightKg: '',
+        yards: '',
+        touchdowns: '',
+        interceptions: ''
+
     }
 
 // if Editing a player fills the form with that players info otherwise form is empty
@@ -21,12 +28,12 @@ const handleChange = (evt) => {
 const handleSubmitForm =  (evt) => {
     evt.preventDefault()
     if (props.selectedPlayer) {
-        props.updatePlayer(props.user._id, props.selectedPlayer._id, formData)
+        props.updatePlayer(props.selectedPlayer._id, formData)
         navigate('/Players/:playerId')
-        props.updatePlayer(props.user._id, props.selectedPlayer._id, formData)
+        props.updatePlayer(props.selectedPlayer._id, formData)
         navigate(`/Players/${props.selectedPlayer._id}`)
     } else {
-        props.createPlayer(props.user._id, formData)
+        props.createPlayer(formData)
         navigate('/Players')
     }
 }
@@ -37,40 +44,96 @@ const handleSubmitForm =  (evt) => {
              <Link to="/" className="home-link">
                 <button className="auth-button">Go</button>
                 </Link>
-                <h2>{props.selectedPlayer ? "Update Your Player" : "Create Your Player"}</h2>
+                <h2>{props.selectedPlayer ? "Update A Player" : "Create A Player"}</h2>
+
              <form onSubmit={handleSubmitForm}>
-                <label htmlFor='playerName'>Player Name:</label>
+                <label htmlFor='name'>Player Name:</label>
                 <input
-                    id="playerName"
-                    name="playerName"
-                    value={formData.playerName}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor='motto'>Player Motto:</label>
+                <label htmlFor='gender'>Gender:</label>
                 <input
-                    id="motto"
-                    name="motto"
-                    value={formData.motto}
+                    id="gender"
+                    name="gender"
+                    value={formData.gender}
                     onChange={handleChange}
                     required
                 />
-            `<label htmlFor='description'>Tell us more about the player:</label>
+            `<label htmlFor='position'>Position</label>
                 <input
-                    id="description"
-                    name="description"
-                    value={formData.description}
+                    id="position"
+                    name="position"
+                    value={formData.position}
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor='playingStyle'>Player Playstyle:</label>
+                <label htmlFor='species'>Species (Leave blank if human)</label>
                 <input
-                    id="playingStyle"
-                    name="playingStyle"
-                    value={formData.playingStyle}
+                    id="species"
+                    name="species"
+                    value={formData.species}
                     onChange={handleChange}
                     required
                 />
+
+                <label htmlFor='isSupernatural'>Do they have superpowers? (treu/false)</label>
+                <input
+                    id="isSupernatural"
+                    name="isSupernatural"
+                    value={formData.isSupernatural}
+                    onChange={handleChange}
+                    required
+                />
+
+                <label htmlFor='heightCm'>Height (In centimeters)</label>
+                <input
+                    id="heightCm"
+                    name="heightCm"
+                    value={formData.heightCm}
+                    onChange={handleChange}
+                    required
+                />
+
+                <label htmlFor='weightKg'>Weight (In Kilograms)</label>
+                <input
+                    id="weightKg"
+                    name="weightKg"
+                    value={formData.weightKg}
+                    onChange={handleChange}
+                    required
+                />
+
+                <label htmlFor='yards'>Yards</label>
+                <input
+                    id="yards"
+                    name="yards"
+                    value={formData.yards}
+                    onChange={handleChange}
+                    required
+                />
+
+                <label htmlFor='touchdowns'>Touchdowns</label>
+                <input
+                    id="touchdowns"
+                    name="touchdowns"
+                    value={formData.touchdowns}
+                    onChange={handleChange}
+                    required
+                />
+
+                <label htmlFor='interceptions'>Interceptions</label>
+                <input
+                    id="interceptions"
+                    name="interceptions"
+                    value={formData.interceptions}
+                    onChange={handleChange}
+                    required
+                />
+
                 <button className="landing-button" type='submit'>{props.selectedPlayer ? "Update Player" : "Create This Player"} </button>
              </form>
         </div>

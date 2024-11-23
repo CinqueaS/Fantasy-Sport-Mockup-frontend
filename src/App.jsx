@@ -12,6 +12,7 @@ import Teams from './components/Teams'
 import TeamInfo from './components/TeamInfo'
 import TeamForm from './components/TeamForm'
 import PlayerInfo from './components/PlayersInfo'
+import PlayerForm from './components/PlayerForm'
 
 import * as authService from '../src/services/authService'
 import * as playersService from '../src/services/playersService'
@@ -28,6 +29,7 @@ function App() {
   const [players, setPlayers] = useState([]) // All players
   const [teams, setTeams] = useState([]) // ALL teams
   const [selectedTeam, setSelectedTeam] = useState(null)
+  const [selectedPlayer, setSelectedPlayer] = useState(null)
   useEffect(() => {
 
     async function getAllPlayers() {
@@ -130,6 +132,26 @@ function App() {
     }));
   };
 
+    /* Updates selected player for player creation form */
+
+  function updateSelectedPlayer(player) {
+    setSelected(player)
+    console.log('Selected player!', player)
+  }
+
+  async function createPlayer(formData) {
+    console.log('New player Form Data:', formData)
+  }
+
+  async function updatePlayer(playerId, formData) {
+    console.log('Updated Player Id:', playerId)
+    console.log('Updated player Form Data:', formData)
+  }
+
+  async function deletePlayer(playerId) {
+    console.log('Deleted Player Id:', playerId)
+  }
+
 
 
   return (
@@ -144,7 +166,8 @@ function App() {
             />
             {/* Player Routes, all of them and specific one below */}
             <Route path="/Players" element={<Players players={players} />} />
-            <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} />} />
+            <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} updateSelectedPlayer={updateSelectedPlayer} deletePlayer={deletePlayer} />} />
+            <Route path='/Players/creator' element={<PlayerForm createPlayer={createPlayer} updatePlayer={updatePlayer} selectedPlayer={selectedPlayer} user={user} />} />
 
             {/* Team Routes, all of them and specific one below */}
             <Route path="/Teams" element={<Teams teams={teams} />} />
