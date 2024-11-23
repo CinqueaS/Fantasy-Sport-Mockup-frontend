@@ -37,7 +37,19 @@ const PlayerInfo = (props) => {
     )
 
     return (
+        <>
         <div>
+        <div className="landing-buttons">
+            <Link to="/" className="landing-button">
+                Home
+            </Link>
+            <Link to="/players" className="landing-button"> 
+              See Players! 
+            </Link>
+            <Link to="/teams" className="landing-button"> 
+              See Teams! 
+            </Link>
+            </div>
             <h1>{singlePlayer.name}</h1>
             <h3>Gender: {singlePlayer.gender}</h3>
             <h3>Position: {singlePlayer.position}</h3>
@@ -56,7 +68,9 @@ const PlayerInfo = (props) => {
                 ) : (
             <button onClick={handleAddPlayer}>Add to team</button>
         )}
+        
         </div>
+        </>
     )
     
 }

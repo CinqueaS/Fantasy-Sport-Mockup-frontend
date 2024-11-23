@@ -58,6 +58,7 @@ const TeamInfo = (props) => {
                     </li>
                     ))}
                 </ul>
+                <button className='landing-button' onClick={() => props.deleteTeam(props.selectedTeam._id)}>Delete Your Team</button>
     </div>
         </>
 

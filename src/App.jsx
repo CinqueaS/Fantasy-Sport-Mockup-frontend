@@ -94,6 +94,20 @@ function App() {
     }
   }
 
+  const deleteTeam = async (teamId) => {
+    try {
+      const deletedTeam = await teamsService.deleteTeam(teamId)
+
+      if (deletedTeam.error) {
+        throw new Error(deletedTeam.error)
+      }
+      setTeams(teams.filter((team) => team._id !== deletedTeam._id))
+      setSelectedTeam(null)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   /* Sets the selected team to whoever is logged in if they have one */
   async function updateSelectedTeam(loggedUser) {
     const loggedUserId = loggedUser._id
@@ -111,6 +125,8 @@ function App() {
       players: [...(prevTeam?.players || []), player],
     }));
   };
+
+
 
   return (
     <AuthedUserContext.Provider value={user}>
@@ -131,8 +147,8 @@ function App() {
 
               {/* Team Routes, all of them and specific one below */}
               <Route path="/Teams" element={<Teams teams={teams} />} />
-              <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
-              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user}/>} />
+              <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} selectedTeam={selectedTeam}/>} />
+              <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam}  updateTeam={updateTeam} selectedTeam={selectedTeam} user={user}/>} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />
