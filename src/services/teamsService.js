@@ -87,7 +87,7 @@ const addPlayerToTeam = async (userId, teamId, playerId, teamDetails = {}) => {
     }
   }
 
-const deleteTeam = async (teamId) => {
+const deleteTeam = async (userId, teamId) => {
   try {
     const res = await axios.delete(`${BASE_URL}/${userId}/team/${teamId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

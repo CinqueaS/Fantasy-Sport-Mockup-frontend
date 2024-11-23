@@ -22,11 +22,9 @@ const handleSubmitForm =  (evt) => {
     evt.preventDefault()
     if (props.selectedTeam) {
         props.updateTeam(props.user._id, props.selectedTeam._id, formData)
-<<<<<<< HEAD
         navigate('/Teams/:teamId')
-=======
+        props.updateTeam(props.user._id, props.selectedTeam._id, formData)
         navigate(`/Teams/${props.selectedTeam._id}`)
->>>>>>> ca5bbcb083f61522f1d958176b77585b8e766aa2
     } else {
         props.createTeam(props.user._id, formData)
         navigate('/Teams')
@@ -74,10 +72,6 @@ const handleSubmitForm =  (evt) => {
                     required
                 />
                 <button className="landing-button" type='submit'>{props.selectedTeam ? "Update Team" : "Create This Team"} </button>
-                
-                <button className='landing-button' onClick={() => props.deleteTeam(props.selectedTeam._id)}>Delete Your Team</button>
-                
-                
              </form>
         </div>
     </main>

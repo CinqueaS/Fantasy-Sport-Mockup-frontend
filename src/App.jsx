@@ -94,9 +94,9 @@ function App() {
     }
   }
 
-  const deleteTeam = async (teamId) => {
+  const deleteTeam = async (userId, teamId) => {
     try {
-      const deletedTeam = await teamsService.deleteTeam(teamId)
+      const deletedTeam = await teamsService.deleteTeam(userId, teamId)
 
       if (deletedTeam.error) {
         throw new Error(deletedTeam.error)
@@ -148,7 +148,7 @@ function App() {
 
             {/* Team Routes, all of them and specific one below */}
             <Route path="/Teams" element={<Teams teams={teams} />} />
-            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} />} />
+            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} user={user}/>} />
             <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user} />} />
           </>
         ) : (
