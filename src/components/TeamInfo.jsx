@@ -40,6 +40,17 @@ const TeamInfo = (props) => {
 
     return (
         <>
+        <div className="landing-buttons">
+            <Link to="/" className="landing-button">
+                Home
+            </Link>
+            <Link to="/players" className="landing-button"> 
+              See Players! 
+            </Link>
+            <Link to="/teams" className="landing-button"> 
+              See Teams! 
+            </Link>
+            </div>
             <div>
                 <h1>{singleTeam.teamName}</h1>
                 <h3>{singleTeam.motto}</h3>
@@ -58,10 +69,14 @@ const TeamInfo = (props) => {
                     <li key={teamMember.id} className="player-item">
                         <Link to={`/players/${teamMember._id}`}>
                         {teamMember.name}
+                        <h3>{teamMember.name} ({teamMember.fantasyPoints} points)</h3>
+                        <h4>{teamMember.position}</h4>
+                        <h4>{teamMember.isSuperNatural ? `POWER PLAYER!` : `Sportsballer!`}</h4>
                         </Link>
                     </li>
                     ))}
                 </ul>
+                
                 <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
                     <Link to ={`/teams`} >Delete Your Team</Link></button>
     </div>
@@ -76,5 +91,10 @@ const TeamInfo = (props) => {
 
 export default TeamInfo
 
-// Not sure what variables are going to be used or anything but this should be enough to make a team page
-// Uncomment when we have a route that will actually go to this page
+// {props.user.team._id === singleTeam._id ? (
+//     <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
+//         <Link to ={`/teams`} >Delete Your Team</Link></button>
+//         ) : (
+//             <button className='landing-button' disabled>
+//         <Link to ={`/teams`} >You do not own this team!</Link></button>
+//         )}
