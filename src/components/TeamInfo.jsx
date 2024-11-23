@@ -20,7 +20,10 @@ const TeamInfo = (props) => {
 
     // This code will work when we place the axios calls in the right spot, like App.jsx
 
+    const reloadPage = () => {
 
+        window.location.reload()
+    }
     
 
 
@@ -59,6 +62,8 @@ const TeamInfo = (props) => {
                     </li>
                     ))}
                 </ul>
+                <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
+                    <Link to ={`/teams`} >Delete Your Team</Link></button>
     </div>
         </>
 
