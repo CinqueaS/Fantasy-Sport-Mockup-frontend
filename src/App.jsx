@@ -100,10 +100,14 @@ function App() {
     const userData = await userService.show(loggedUserId)
     if (userData.team) {
       setSelectedTeam(userData.team)
+    } else {
+      setSelectedTeam(null)
     }
   }
 
-  updateSelectedTeam(user)
+  if (user) {
+    updateSelectedTeam(user)
+  }
 
   const handlePlayerAddition = (player) => {
     setSelectedTeam((prevTeam) => ({

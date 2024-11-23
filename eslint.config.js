@@ -33,6 +33,8 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/prop-types': 'off', // Should remove type errors
+      'react/no-unescaped-entities': 'off' // Should remove type errors
     },
   },
 ]
