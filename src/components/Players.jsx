@@ -4,7 +4,7 @@ import axios from 'axios'
 import '../App.css'
 
 const Players = (props) => {
-  console.log(props.players)
+  /* console.log(props.players) */
 
   return (
     <div className="players-container">

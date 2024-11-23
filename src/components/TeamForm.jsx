@@ -7,6 +7,7 @@ const TeamForm = (props) => {
     const DefaultState = {
         teamName: '',
         motto: '',
+        description: '',
         playingStyle: ''
     }
 
@@ -20,8 +21,8 @@ const handleChange = (evt) => {
 const handleSubmitForm =  (evt) => {
     evt.preventDefault()
     if (props.selectedTeam) {
-        props.updateTeam(formData, props.selectedTeam._id)
-        navigate('/Teams/:teamId')
+        props.updateTeam(props.user._id, props.selectedTeam._id, formData)
+        navigate(`/Teams/${props.selectedTeam._id}`)
     } else {
         props.createTeam(props.user._id, formData)
         navigate('/Teams')
@@ -49,6 +50,14 @@ const handleSubmitForm =  (evt) => {
                     id="motto"
                     name="motto"
                     value={formData.motto}
+                    onChange={handleChange}
+                    required
+                />
+            `<label htmlFor='description'>Tell us more about the team:</label>
+                <input
+                    id="description"
+                    name="description"
+                    value={formData.description}
                     onChange={handleChange}
                     required
                 />
