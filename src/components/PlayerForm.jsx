@@ -9,7 +9,7 @@ const PlayerForm = (props) => {
         gender: '',
         position: '',
         species: '',
-        isSupernatural: '',
+        isSupernatural: null,
         heightCm: '',
         weightKg: '',
         yards: '',
@@ -78,15 +78,19 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-
-                <label htmlFor='isSupernatural'>Do they have superpowers? (treu/false)</label>
-                <input
+                
+                <label htmlFor='isSupernatural'>Do they have superpowers? (true/false)</label>
+                <select
                     id="isSupernatural"
                     name="isSupernatural"
-                    value={formData.isSupernatural}
+                    value={formData.isSupernatural === "True" ? true : false}
                     onChange={handleChange}
                     required
-                />
+                >
+                    <option value="" disabled>Select true or false</option>
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                </select>
 
                 <label htmlFor='heightCm'>Height (In centimeters)</label>
                 <input
