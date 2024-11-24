@@ -135,8 +135,11 @@ function App() {
     /* Updates selected player for player creation form */
 
   function updateSelectedPlayer(player) {
-    setSelected(player)
-    console.log('Selected player!', player)
+    if (player) {
+    setSelectedPlayer(player)
+    } else { 
+      setSelectedPlayer(null)
+    }
   }
 
   async function createPlayer(formData) {
@@ -162,10 +165,10 @@ function App() {
         {user ? (
           <>
             <Route path="/" element={
-              <HomePage handleSignout={handleSignout} />}
+              <HomePage handleSignout={handleSignout} selectedTeam={selectedTeam} updateSelectedPlayer={updateSelectedPlayer}/>}
             />
             {/* Player Routes, all of them and specific one below */}
-            <Route path="/Players" element={<Players players={players} />} />
+            <Route path="/Players" element={<Players players={players} updateSelectedPlayer={updateSelectedPlayer}/>} />
             <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} updateSelectedPlayer={updateSelectedPlayer} deletePlayer={deletePlayer} />} />
             <Route path='/Players/creator' element={<PlayerForm createPlayer={createPlayer} updatePlayer={updatePlayer} selectedPlayer={selectedPlayer} user={user} />} />
 

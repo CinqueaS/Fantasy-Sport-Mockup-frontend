@@ -21,6 +21,10 @@ const Players = (props) => {
             <h4>{player.isSuperNatural ? `POWER PLAYER!` : `Sportsballer!`}</h4>
             <h4>{player.owner_id ? `${player.owner_id.team.teamName} player` : `Available`}</h4>
             </Link>
+            <button className="auth-button" onClick={() => props.deletePlayer(player._id)}>Delete</button>
+            <Link to={`/Players/creator`}>
+            <button className="auth-button" onClick={() => props.updateSelectedPlayer(player)}>Update Stats</button>
+            </Link>
           </li>
         ))}
       </ul>
