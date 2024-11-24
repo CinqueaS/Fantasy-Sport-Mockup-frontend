@@ -5,7 +5,7 @@ import '../App.css'
 
 const Teams = (props) => {
   const teams = props.teams
-  
+
   return (
     <div className="teams-container">
       <h1 className="teams-title">Teams</h1>
@@ -14,7 +14,7 @@ const Teams = (props) => {
         </Link>
       <ul className="teams-list">
         {teams.map((team) => (
-          <li key={team.id} className="team-item">
+          <li key={team._id} className="team-item">
             <Link to={`/teams/${team._id}`}>
               <p>{team.teamName}</p>
               <p>Players: {team.team_member_ids.length}</p>

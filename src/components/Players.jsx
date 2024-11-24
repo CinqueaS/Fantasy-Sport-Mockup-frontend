@@ -14,7 +14,7 @@ const Players = (props) => {
         </Link>
       <ul className="players-list">
         {props.players.map((player) => (
-          <li key={player.id} onClick={() => props.updateSelectedPlayer(player)} className="player-item" >
+          <li key={player._id} className="player-item" >
             <Link to={`/players/${player._id}`}>
             <h3>{player.name} ({player.fantasyPoints} points)</h3>
             <h4>{player.position}</h4>

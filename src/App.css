@@ -46,47 +46,10 @@ h1, h2, h3 {
     font-size: 18px;
   }
 
-  .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff8e47, #ffc371);
-    animation: gradientBG 5s infinite alternate;
-    overflow: hidden;
-    position: relative;
-  }
   
   @keyframes gradientBG {
     0% { background: linear-gradient(135deg, #ff8e47, #ffc371); }
     100% { background: linear-gradient(135deg, #ffc371, #ff8e47); }
-  }
-  
-  .auth-box {
-    width: 100%;
-    max-width: 400px;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    animation: float 4s infinite ease-in-out;
-  }
-  
-  .auth-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(255, 87, 51, 0.4);
-  }
-  
-  .auth-box h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #ff5733;
-    text-transform: uppercase;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    letter-spacing: 2px;
   }
   
   .auth-input {
@@ -372,10 +335,10 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   background: linear-gradient(135deg, #ff8e47, #ffc371);
   animation: gradientBG 5s infinite alternate;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
 }
 

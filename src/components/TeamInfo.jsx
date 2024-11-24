@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom"
-import { Link } from 'react-router-dom'
+import { useParams, Link } from "react-router-dom"
+import { useState, useEffect } from "react"
 import axios from 'axios'
 import '../App.css'
 
 const TeamInfo = (props) => {
-
-    /* console.log('The props!', props) */
+    const [singleTeam, setSingleTeam] = useState(null)
+   
 
     // Pull the NAME of selected Team into a variable
     const { teamId } = useParams()
@@ -13,10 +13,14 @@ const TeamInfo = (props) => {
     /* console.log('team ID:', teamId) */
 
     // Locates team with find(), so we can render data of that Team only!
-    const singleTeam = props.teams.find((team) => 
-        team._id === teamId) /* Finds team by its ID */
+    const fetchSingleTeam  = () => {
+        const teamInfo = props.teams.find((team) => team._id === teamId) 
+        setSingleTeam(teamInfo)
+    }/* Finds team by its ID */
     /* console.log('Team Object:', singleTeam) */
-
+    useEffect(() => {
+        fetchSingleTeam()
+    }, [])
 
     // This code will work when we place the axios calls in the right spot, like App.jsx
 
@@ -66,7 +70,7 @@ const TeamInfo = (props) => {
                 </Link>
                 <ul className="players-list">
                     {singleTeam.team_member_ids.map((teamMember) => (
-                    <li key={teamMember.id} className="player-item">
+                    <li key={teamMember._id} className="player-item">
                         <Link to={`/players/${teamMember._id}`}>
                         {teamMember.name}
                         <h3>{teamMember.name} ({teamMember.fantasyPoints} points)</h3>
@@ -76,9 +80,9 @@ const TeamInfo = (props) => {
                     </li>
                     ))}
                 </ul>
+                {props.user.team._id === singleTeam._id ? <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
+                <Link to ={`/teams`} >Delete Your Team</Link></button> : null}
                 
-                <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
-                    <Link to ={`/teams`} >Delete Your Team</Link></button>
     </div>
         </>
 
