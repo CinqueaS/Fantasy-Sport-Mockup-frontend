@@ -44,8 +44,7 @@ const handleSubmitForm =  (evt) => {
              <Link to="/" className="home-link">
                 <button className="auth-button">Go</button>
                 </Link>
-                <h2>{props.selectedPlayer ? "Update A Player" : "Create A Player"}</h2>
-
+                <h2>{props.selectedPlayer ? "Update Your Player" : "Create Your Player"}</h2>
              <form onSubmit={handleSubmitForm}>
                 <label htmlFor='name'>Player Name:</label>
                 <input
@@ -63,7 +62,7 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-            `<label htmlFor='position'>Position</label>
+            <label htmlFor='position'>Position</label>
                 <input
                     id="position"
                     name="position"

@@ -55,7 +55,7 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-            `<label htmlFor='description'>Tell us more about the team:</label>
+            <label htmlFor='description'>Tell us more about the team:</label>
                 <input
                     id="description"
                     name="description"

@@ -12,7 +12,7 @@ const HomePage = ({ handleSignout }) => {
       <h1>Welcome {user.username}</h1>
       
           <div className="landing-container">
-            {/* <img src="/Fant-Sport-Image.avif" alt="Fant-Sports Img" /> */}
+            <img src="/Fant-Sport-Image.avif" alt="Fant-Sports Img" />
             <Link to="/about-Us" className="landing-button"> 
               About Us! 
             </Link>
