@@ -71,6 +71,7 @@ function App() {
         throw new Error(newTeam.error)
       }
       setTeams([newTeam, ...teams])
+      setSelectedTeam([newTeam])
     } catch (error) {
       console.log(error)
     }
