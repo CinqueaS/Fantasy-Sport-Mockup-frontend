@@ -5,28 +5,15 @@ import axios from 'axios'
 import '../App.css'
 
 const TeamInfo = (props) => {
-    // const [singleTeam, setSingleTeam] = useState(null)
    
 
     // Pull the NAME of selected Team into a variable
     const { teamId } = useParams()
-    
-    /* console.log('team ID:', teamId) */
 
+
+     // Locates team with find(), so we can render data of that Team only!
     const singleTeam = props.teams.find((team) => 
-        team._id === teamId) /* Finds team by its NAME */
-
-    // Locates team with find(), so we can render data of that Team only!
-    // const fetchSingleTeam  = () => {
-    //     const teamInfo = props.teams.find((team) => team._id === teamId) 
-    //     setSingleTeam(teamInfo)
-    // }/* Finds team by its ID */
-    // /* console.log('Team Object:', singleTeam) */
-    // useEffect(() => {
-    //     fetchSingleTeam()
-    // }, [])
-
-    // This code will work when we place the axios calls in the right spot, like App.jsx
+        team._id === teamId) /* Finds team by its ID */
 
     const reloadPage = () => {
 
@@ -36,12 +23,12 @@ const TeamInfo = (props) => {
 
     const handleRemovePlayer = async (teamMember) => {
         try {
-          await teamService.removePlayerFromTeam(props.userId, teamId, teamMember._id);
-          alert(`${teamMember.name} has been removed to the team!`);
+          await teamService.removePlayerFromTeam(props.user._id, teamId, teamMember._id)
+          alert(`${teamMember.name} has been removed to the team!`)
            props.handlePlayerRemoval(teamMember)
         } catch (error) {
-          console.error("Error removing player:", error);
-          alert("Failed to remove player. Please try again.");
+          console.error("Error removing player:", error)
+          alert("Failed to remove player. Please try again.")
         }
       }
 
@@ -52,9 +39,6 @@ const TeamInfo = (props) => {
         return (
         <div>
             <h2> No team selected </h2>
-            <Link to="/" className="landing-button">
-                Home
-            </Link>
         </div>
     )
 
@@ -77,6 +61,12 @@ const TeamInfo = (props) => {
                 <h3>Playing Style: {singleTeam.playingStyle}</h3>
                 <h3>Fantasy Points: {singleTeam.totalFantasyPoints}</h3>
                 <h3>{singleTeam.description}</h3>
+                {props.user.team._id === singleTeam._id ?
+                <button>
+                    <Link to="/teams/creator" className="landing-button">
+                        {`Update My Team`}
+                    </Link>
+                </button> : null}
             </div>
 
             <div className="players-container">
@@ -94,7 +84,7 @@ const TeamInfo = (props) => {
                         <h4>{teamMember.isSuperNatural ? `POWER PLAYER!` : `Sportsballer!`}</h4>
                         </Link>
                         {props.user.team._id === singleTeam._id ? 
-                    <button className='landing-button' onClick={() => {handleRemovePlayer(teamMember); reloadPage()} }>
+                    <button className='landing-button' onClick={() => {handleRemovePlayer(teamMember)} }>
                     Remove from your team
                     </button> 
                     : null}
@@ -116,4 +106,3 @@ const TeamInfo = (props) => {
 
 
 export default TeamInfo
-

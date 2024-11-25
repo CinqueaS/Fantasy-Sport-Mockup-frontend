@@ -134,15 +134,15 @@ function App() {
     setSelectedTeam((prevTeam) => ({
       ...prevTeam,
       players: [...(prevTeam?.players || []), player],
-    }));
-  };
+    }))
+  }
 
   const handlePlayerAddition = (player) => {
     setSelectedTeam((prevTeam) => ({
       ...prevTeam,
       players: [...(prevTeam?.players || []), player],
-    }));
-  };
+    }))
+  }
 
     /* Updates selected player for player creation form */
 
@@ -219,7 +219,7 @@ function App() {
 
             {/* Team Routes, all of them and specific one below */}
             <Route path="/Teams" element={<Teams teams={teams} />} />
-            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} handdlePlayerRemoval={handlePlayerRemoval} user={user}/>} />
+            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} handlePlayerRemoval={handlePlayerRemoval} user={user}/>} />
             <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user} />} />
           </>
         ) : (
