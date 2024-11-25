@@ -69,6 +69,7 @@ const getSupernaturalPlayers = async () => {
 
 const create = async (formData) => {
   try {
+    console.log('Form', formData)
     const res = await axios.post(BASE_URL, formData, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     })

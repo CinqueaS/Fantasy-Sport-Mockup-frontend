@@ -27,10 +27,14 @@ const handleChange = (evt) => {
 
 const handleSubmitForm =  (evt) => {
     evt.preventDefault()
+    if (formData.isSupernatural === "nothing") {
+        alert("We need to know if they have superpowers")
+        return
+      }
     if (props.selectedPlayer) {
-        props.updatePlayer(props.selectedPlayer._id, formData)
+        props.updatePlayer(formData, props.selectedPlayer._id)
         navigate('/Players/:playerId')
-        props.updatePlayer(props.selectedPlayer._id, formData)
+        props.updatePlayer(formData, props.selectedPlayer._id)
         navigate(`/Players/${props.selectedPlayer._id}`)
     } else {
         props.createPlayer(formData)
@@ -83,13 +87,13 @@ const handleSubmitForm =  (evt) => {
                 <select
                     id="isSupernatural"
                     name="isSupernatural"
-                    value={formData.isSupernatural === "True" ? true : false}
+                    value={formData.isSupernatural === null ? "" : formData.isSupernatural}
                     onChange={handleChange}
                     required
                 >
-                    <option value="" disabled>Select true or false</option>
-                    <option value={true}>True</option>
-                    <option value={false}>False</option>
+                    <option value="">Select one</option>
+                    <option value={true}>Yeah! Superpowers!</option>
+                    <option value={false}>Nope</option>
                 </select>
 
                 <label htmlFor='heightCm'>Height (In centimeters)</label>
