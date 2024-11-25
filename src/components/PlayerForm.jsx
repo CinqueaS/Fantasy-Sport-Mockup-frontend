@@ -70,7 +70,7 @@ const handleSubmitForm =  (evt) => {
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor='species'>Species (Leave blank if human)</label>
+                <label htmlFor='species'>Species (Put 'Human' if human)</label>
                 <input
                     id="species"
                     name="species"

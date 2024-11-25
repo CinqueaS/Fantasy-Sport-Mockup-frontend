@@ -5,8 +5,9 @@ import { Link, Route, Routes } from "react-router-dom"
 
 import "../App.css"
 
-const HomePage = ({ handleSignout }) => {
+const HomePage = (props) => {
   const user = useContext(AuthedUserContext)
+
   return (
     <>
       <h1>Welcome {user.username}</h1>
@@ -22,13 +23,13 @@ const HomePage = ({ handleSignout }) => {
             <Link to="/teams" className="landing-button"> 
               See Teams! 
             </Link>
-            <Link to="/players/creator" className="landing-button">
+            <Link to="/players/creator" className="landing-button" onClick={() => props.updateSelectedPlayer()}>
               Create a Player!
             </Link>
             <Link to="/teams/creator" className="landing-button">
-              Create a Team!
+              {props.selectedTeam ? `Update My Team` : `Create a Team!`}
             </Link>
-            <Link to="/" className="home-link" onClick={handleSignout}>
+            <Link to="/" className="home-link" onClick={props.handleSignout}>
             <button className="landing-button">Sign Out</button>
             </Link>
           </div>
