@@ -52,6 +52,9 @@ const TeamInfo = (props) => {
         return (
         <div>
             <h2> No team selected </h2>
+            <Link to="/" className="landing-button">
+                Home
+            </Link>
         </div>
     )
 
