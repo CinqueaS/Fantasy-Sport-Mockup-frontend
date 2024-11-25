@@ -61,31 +61,33 @@ const update = async (userId, teamId, formData) => {
 
 const addPlayerToTeam = async (userId, teamId, playerId, teamDetails = {}) => {
   try {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
     const res = await axios.put(
       `${BASE_URL}/${userId}/team/${teamId}/add-player/${playerId}`,
       teamDetails, // Include optional team details in the request body
       {
         headers: { Authorization: `Bearer ${token}` },
       }
-    );
-    return res.data;
+    )
+    return res.data
   } catch (error) {
-    console.error('Error adding player to team:', error.response?.data || error.message);
-    throw error.response?.data || error;
+    console.error('Error adding player to team:', error.response?.data || error.message)
+    throw error.response?.data || error
   }
-};
+}
 
-  const removePlayerFromTeam = async (userId, teamId, playerId) => {
-    try {
-      const res = await axios.put(`${BASE_URL}/${userId}/team/${teamId}/remove-player/${playerId}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
-      return res.data
-    } catch (error) {
-      console.log(error)
-    }
+const removePlayerFromTeam = async (userId, teamId, playerId) => {
+  try {
+    const token = localStorage.getItem('token')
+    console.log('user token', token)
+    const res = await axios.put(`${BASE_URL}/${userId}/team/${teamId}/remove-player/${playerId}`, null, {
+      headers: { Authorization: `Bearer ${token}` },
+    }) /* I have no idea how this fixed the problem with this fucntion, just copied and pasted from above when trying to debug */
+    return res.data
+  } catch (error) {
+    console.log(error)
   }
+}
 
 const deleteTeam = async (userId, teamId) => {
   try {
