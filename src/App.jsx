@@ -110,6 +110,8 @@ function App() {
     }
   }
 
+
+
   /* Sets the selected team to whoever is logged in if they have one */
   async function updateSelectedTeam(loggedUser) {
     const loggedUserId = loggedUser._id
@@ -124,6 +126,15 @@ function App() {
   if (user) {
     updateSelectedTeam(user)
   }
+
+
+
+  const handlePlayerRemoval = (player) => {
+    setSelectedTeam((prevTeam) => ({
+      ...prevTeam,
+      players: [...(prevTeam?.players || []), player],
+    }));
+  };
 
   const handlePlayerAddition = (player) => {
     setSelectedTeam((prevTeam) => ({
@@ -143,16 +154,49 @@ function App() {
   }
 
   async function createPlayer(formData) {
-    console.log('New player Form Data:', formData)
+    try {
+      const newPlayer = await playersService.create(formData)
+      if (newPlayer.error) {
+        throw new Error(newPlayer.error)
+      }
+      setPlayers([newPlayer, ...players])
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  async function updatePlayer(playerId, formData) {
-    console.log('Updated Player Id:', playerId)
-    console.log('Updated player Form Data:', formData)
+  async function updatePlayer(formData, playerId) {
+    try {
+      const updatedPlayer = await playersService.update(formData, playerId)
+
+      if (updatedPlayer.error) {
+        throw new Error(updatedPlayer.error)
+      }
+
+      const updatedPlayers = players.map((player) =>
+        player._id !== updatedPlayer._id ? player : updatedPlayer
+      )
+
+      setPlayers(updatedPlayers)
+      setSelectedPlayer(updatedPlayer)
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   async function deletePlayer(playerId) {
-    console.log('Deleted Player Id:', playerId)
+    try {
+      const deletedPlayer = await playersService.deletePlayer(playerId)
+
+      if (deletedPlayer.error) {
+        throw new Error(deletedPlayer.error)
+      }
+      setPlayers(players.filter((player) => player._id !== deletedPlayer._id))
+      setSelectedPlayer(null)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 
@@ -168,13 +212,13 @@ function App() {
               <HomePage handleSignout={handleSignout} selectedTeam={selectedTeam} updateSelectedPlayer={updateSelectedPlayer}/>}
             />
             {/* Player Routes, all of them and specific one below */}
-            <Route path="/Players" element={<Players players={players} updateSelectedPlayer={updateSelectedPlayer}/>} />
+            <Route path="/Players" element={<Players players={players} updateSelectedPlayer={updateSelectedPlayer} deletePlayer={deletePlayer}/>} />
             <Route path="/Players/:playerId" element={<PlayerInfo players={players} userId={user?._id} teamId={selectedTeam?._id} handlePlayerAddition={handlePlayerAddition} updateSelectedPlayer={updateSelectedPlayer} deletePlayer={deletePlayer} />} />
             <Route path='/Players/creator' element={<PlayerForm createPlayer={createPlayer} updatePlayer={updatePlayer} selectedPlayer={selectedPlayer} user={user} />} />
 
             {/* Team Routes, all of them and specific one below */}
             <Route path="/Teams" element={<Teams teams={teams} />} />
-            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} user={user}/>} />
+            <Route path="/Teams/:teamId" element={<TeamInfo teams={teams} deleteTeam={deleteTeam} handdlePlayerRemoval={handlePlayerRemoval} user={user}/>} />
             <Route path='/Teams/creator' element={<TeamForm createTeam={createTeam} updateTeam={updateTeam} selectedTeam={selectedTeam} user={user} />} />
           </>
         ) : (
