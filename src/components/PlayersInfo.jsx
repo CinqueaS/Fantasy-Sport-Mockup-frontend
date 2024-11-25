@@ -7,20 +7,20 @@ const PlayerInfo = (props) => {
 
     // Locates player with find(), so we can render data of that Player only!
     const singlePlayer = props.players.find((player) => 
-        player._id === playerId) /* Finds player by its NAME */
+        player._id === playerId) /* Finds player by its Id */
 
 
-    // This code will work when we place the axios calls in the right spot, like App.jsx
+    
 
 
     const handleAddPlayer = async () => {
         try {
-          await teamService.addPlayerToTeam(props.userId, props.teamId, singlePlayer._id);
-          alert(`${singlePlayer.name} has been added to the team!`);
+          await teamService.addPlayerToTeam(props.userId, props.teamId, singlePlayer._id)
+          alert(`${singlePlayer.name} has been added to the team!`)
            props.handlePlayerAddition(singlePlayer)
         } catch (error) {
-          console.error("Error adding player:", error);
-          alert("Failed to add player. Please try again.");
+          console.error("Error adding player:", error)
+          alert("Failed to add player. Please try again.")
         }
       }
  
@@ -68,8 +68,13 @@ const PlayerInfo = (props) => {
                 <h3>Drafted to the {singlePlayer.owner_id.team.teamName}</h3>
                 </Link>
                 ) : (
-            <button onClick={handleAddPlayer}>Add to team</button>
+            <button className="auth-button" onClick={handleAddPlayer}>Add to team</button>
         )}
+
+            <button className="auth-button" onClick={() => props.deletePlayer(singlePlayer._id)}>Delete</button>
+            <Link to={`/Players/creator`}>
+            <button className="auth-button" onClick={() => props.updateSelectedPlayer(singlePlayer)}>Update Stats</button>
+            </Link>
         
         </div>
         </>
@@ -81,5 +86,3 @@ const PlayerInfo = (props) => {
 
 export default PlayerInfo
 
-// Not sure what variables are going to be used or anything but this should be enough to make a player page
-// Uncomment when we have a route that will actually go to this page
