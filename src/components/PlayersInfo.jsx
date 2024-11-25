@@ -23,7 +23,9 @@ const PlayerInfo = (props) => {
           alert("Failed to add player. Please try again.");
         }
       }
+ 
 
+      
 
 
 
