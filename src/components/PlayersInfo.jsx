@@ -33,9 +33,22 @@ const PlayerInfo = (props) => {
 
     if (!singlePlayer)
         return (
-            <div>
-                <h2> No player selected </h2>
-            </div>
+            <>
+                <div className="landing-buttons">
+                    <Link to="/" className="landing-button">
+                    Home
+                    </Link>
+                    <Link to="/players" className="landing-button"> 
+                    See Players! 
+                    </Link>
+                    <Link to="/teams" className="landing-button"> 
+                    See Teams! 
+                    </Link>
+                </div>
+                <div>
+                  <h2> No player selected </h2>
+                </div>
+            </>
     )
 
     return (

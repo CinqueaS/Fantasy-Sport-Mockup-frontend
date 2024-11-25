@@ -37,9 +37,22 @@ const TeamInfo = (props) => {
 
     if (!singleTeam)
         return (
-        <div>
-            <h2> No team selected </h2>
-        </div>
+            <>
+             <div className="landing-buttons">
+                <Link to="/" className="landing-button">
+                Home
+                </Link>
+                <Link to="/players" className="landing-button"> 
+                See Players! 
+                </Link>
+                <Link to="/teams" className="landing-button"> 
+                See Teams! 
+                </Link>
+              </div>
+              <div>
+                <h2> No team selected </h2>
+              </div>
+        </>
     )
 
     return (
@@ -92,7 +105,7 @@ const TeamInfo = (props) => {
                     </li>
                     ))}
                 </ul>
-                {props.user.team._id === singleTeam._id ? <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id) reloadPage()} }>
+                {props.user.team._id === singleTeam._id ? <button className='landing-button' onClick={() => {props.deleteTeam(props.user._id, singleTeam._id); reloadPage()} }>
                 <Link to ={`/teams`} >Delete Your Team</Link></button> : null}
                 
     </div>
